@@ -1,0 +1,64 @@
+<div class="container">
+  <div class="row">
+    <div class="col3-md offset-1 mt-5">
+      <h3 class="p-2" style="background-color:#dcdcdc">Sign up</h3>
+    </div>
+  </div>
+
+<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+  <%= render "public/shared/error_messages", resource: resource %>
+
+    <table class="table　table-borderless table-sm mt-5 mb-5">
+     <div class="field">
+      <tr>
+        <th><%= f.label :"user name" %></th>
+        <td><%= f.text_field :name, autofocus: true, autocomplete: "name" %></td>
+      </tr>
+     </div>
+
+     <div class="field">
+      <tr>
+        <th><%= f.label :email %></th>
+        <td><%= f.email_field :email, autofocus: true, autocomplete: "email" %></td>
+      </tr>
+     </div>
+
+     <div class="field">
+      <tr>
+        <th><%= f.label :password %>
+        <% if @minimum_password_length %>
+        <em>(<%= @minimum_password_length %> 文字以上)</em>
+        <% end %></th>
+        <td><%= f.password_field :password, autocomplete: "new-password" %></td>
+      </tr>
+     </div>
+
+     <div class="field">
+      <tr>
+        <th><%= f.label :"password（確認用）" %></th>
+        <td><%= f.password_field :password_confirmation, autocomplete: "new-password" %></td>
+      </tr>
+     </div>
+
+    </table>
+<% end %>
+
+     <div class="row">
+      <div class="col-3-md offset-1 mt-5">
+        <h5 class="p-2" style="background-color:#dcdcdc">既に登録済みの方</h5>
+      </div>
+     </div>
+     <div class="row mb-5">
+      <div class="col-3-md offset-2">
+        <p class="ml-3"><%= link_to "こちら", customer_session_path %>からログインしてください。</p>
+      </div>
+     </div>
+     
+</div>
+
+     <!--<div class="actions">-->
+     <!--   <td><-%= f.submit "Sign up" %></td>-->
+     <!--</div>-->
+
+
+<!--<-%= render "public/shared/links" %>-->

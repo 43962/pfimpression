@@ -1,0 +1,37 @@
+<div>
+  <%= image_tag @review.image,size: "300x300" %>
+  <p>商品名：<%= @review.item_name %></p>
+  <p>説明：<%= @review.review %></p>
+  <p>ユーザーネーム：<%= @review.name %></p>
+  <p>投稿日：<%= @review.created_at.strftime('%Y/%m/%d') %></p>
+  <% if @review.customer == current_customer %>
+  <%= link_to "削除", review_path(@review), method: :delete %>
+  <% end %>
+  <!--<-% if @post_image.favorited_by?(current_user) %>-->
+  <!--  <p>-->
+  <!--    <-%= link_to post_image_favorites_path(@post_image), method: :delete do %>-->
+  <!--     ♥<-%= @post_image.favorites.count %> いいね-->
+  <!--    <-% end %>-->
+  <!--  </p>-->
+  <!--  <-% else %>-->
+  <!--  <p>-->
+  <!--    <-%= link_to post_image_favorites_path(@post_image), method: :post do %>-->
+  <!--     ♡<-%= @post_image.favorites.count %> いいね-->
+  <!--    <-% end %>-->
+  <!--  </p>-->
+  <!--<-% end %>-->
+</div>
+
+<div>
+  <!--<p>コメント件数：<-%= @review.post_comments.count %></p>-->
+  <% @review.comments.each do |comment| %>
+    <%= comment.customer.name %>
+    <%= comment.created_at.strftime('%Y/%m/%d') %><%= comment.comment %>
+    <% if comment.customer == current_customer %>
+      <%= link_to "削除", review_comment_path(comment.review, comment), method: :delete %>
+    <% end %>
+  <% end %>
+</div>
+
+   <%= link_to '戻る', admin_reviews_path, class: "btn btn-success px-3", style:"font-weight:bold;" %>
+   <!--<-%= link_to '注文内容一覧を見る', admin_path, class: "btn btn-primary ml-5", style:"font-weight:bold;" %>-->

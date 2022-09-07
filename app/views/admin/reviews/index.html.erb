@@ -1,0 +1,46 @@
+<div class='container'>
+  <div class='row'>
+    <div class='col-md-8 offset-2'>
+      <h4 class="my-4", style="background-color: #eee; width:120px; padding-left: 12px;"><b>投稿されたレビュー</b></h4>
+
+        <table class="table">
+          <thead>
+            <tr class="table-active">
+              <th>会員ID</th>
+              <th style="text-decoration: underline;">ユーザー名</th>
+              <th>商品名</th>
+              <th>レビュー内容</th>
+            </tr>
+          </thead>
+
+          <% @review.each do |review| %>
+          <tbody>
+            <tr>
+              <td><%= review.customer_id %></td>
+              <td>
+                <%= link_to admin_customer_path(review), style: "color: #000; text-decoration: underline;" do %>
+                <%= review.name %>
+                <% end %>
+              </td>
+              <td><%= review.item_name %></td>
+              <!--<-% if customer.is_deleted == false %>-->
+              <!--  <td class="text-success font-weight-bold">有効</td>-->
+              <!--<-% else %>-->
+              <!--  <td class="text-secondary font-weight-bold">退会</td>-->
+              <!--<-% end %>-->
+              <td><%= link_to "詳細へ", admin_review_path(review) %></td>
+            </tr>
+          </tbody>
+          <% end %>
+            <tr>
+              <td colspan="4"></td>
+            </tr>
+        </table>
+
+        <ul class="pagination justify-content-center">
+          <!--<-%= paginate @customers %>-->
+        </ul>
+
+    </div>
+  </div>
+</div>

@@ -1,0 +1,37 @@
+<div class="container">
+  <div class="row no-gutters">
+    <div class="col-md-5 col-sm-10 mx-2 mx-sm-auto shadow-lg rounded px-0 my-5">
+      <h5 class="text-dark bg-light p-4 mb-0">レビュー投稿フォーム</h5>
+      <div class="form-body p-4">
+        <!--<-% if @image.errors.any? %>-->
+        <!--  <ul class="alert alert-danger" role="alert">-->
+        <!--    <h6 class="alert-heading">-->
+        <!--      <-%= @image.errors.count %>件のエラーが発生しました-->
+        <!--    </h6>-->
+        <!--    <-% @image.errors.full_messages.each do |message| %>-->
+        <!--      <li><-%= message %></li>-->
+        <!--    <-% end %>-->
+        <!--  </ul>-->
+        <!--<-% end %>-->
+        <%= form_with model: @review do |f| %>
+        
+          <%= f.file_field :image, accept: "image/*", class: "w-100" %>
+          <div class="input-group mb-3 mt-4">
+            <div class="input-group-prepend">
+              <span class="input-group-text" aria-hidden="true"><i class="fas fa-building"></i></span>
+            </div>
+            <%= f.text_field :name, class:"form-control", placeholder:"ユーザー名" %>
+          </div>
+          <%= f.text_field :height, class:"form-control", placeholder:"身長(cm)" %>
+          <%= f.text_field :weight, class:"form-control", placeholder:"体重(kg)" %>
+          
+          <%= f.text_field :item_name, class:"form-control", placeholder:"商品名" %>
+          <%= f.text_area :review, class:"form-control", rows:"3", placeholder:"レビュー" %>
+          <hr>
+          
+          <%= f.submit '投稿', class:"btn btn-lg btn-block btn-info mt-4" %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,33 @@
+<h3>Review</h3>
+
+<div class="card-list-container py-5">
+  <% @review.each do |review| %>
+  <div class="card w-50 mx-auto mt-4 shadow-lg">
+    <%= link_to review_path(review.id) do %>
+      <%= image_tag review.get_image, class:"card-img-top" %>
+    <% end %>
+    <div class="card-body">
+      <div class="row">
+
+        <div class="col-10">
+          <p class="card-title">
+            <%= link_to(review_path(review.id), class:"text-dark") do %>
+              <strong><i class="far fa-flag"></i><span> <%= review.name %></span></strong>
+            <% end %>
+          </p>
+          <span class="card-text">身長：<%= review.height %>cm</span>
+          <span class="card-text">体重：<%= review.weight %>kg</span>
+          <p></p>
+          <p class="card-text">商品名：<%= review.item_name %></p>
+          <p class="card-text">レビュー：<%= review.review %></p>
+          <span><i class="fas fa-user"></i> By <%= review.name %> ｜ </span>
+          <!--<span><-%= link_to "#{post_image.post_comments.count} コメント", post_image_path(post_image.id), class:"text-dark" %></span>-->
+        </div>
+      </div>
+    </div>
+  </div>
+  <% end %>
+  
+  <div style="margin:0 auto;">
+  <%= paginate @review %>
+</div>
