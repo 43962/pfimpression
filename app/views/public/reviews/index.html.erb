@@ -21,7 +21,7 @@
           <p class="card-text">商品名：<%= review.item_name %></p>
           <p class="card-text">レビュー：<%= review.review %></p>
           <span><i class="fas fa-user"></i> By <%= review.customer.name %> ｜ </span>
-          <!--<span><-%= link_to "#{post_image.post_comments.count} コメント", post_image_path(post_image.id), class:"text-dark" %></span>-->
+          <span><%= link_to "#{review.comments.count} コメント", review_path(review.id), class:"text-dark" %></span>
         </div>
       </div>
     </div>

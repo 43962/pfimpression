@@ -1,0 +1,18 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-10 ">
+      <%= form_with  model: @category, url:admin_category_path do |f| %>
+       <!--<-%= render "layouts/errors", model: @genre %>-->
+        <h2 class="mb-3 border_bottom", style="padding:10px;">カテゴリー編集</h1>
+          <div class="form-group">
+            <label for="genre_title">カテゴリー名</label>
+            <%= f.text_field :name, class:"form-control genre_title", id:"category_name" %>
+          </div>
+        
+          <div class="form-group">
+            <%= f.submit '変更を保存', class:"btn btn-primary" %>
+          </div>
+        
+      <% end %>
+    </div>
+  </div>
