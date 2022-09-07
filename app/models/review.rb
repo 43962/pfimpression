@@ -3,7 +3,6 @@ class Review < ApplicationRecord
   belongs_to :customer
   has_many :comments, dependent: :destroy
   
-  validates :name, presence: true
   validates :height, presence: true
   validates :weight, presence: true
   validates :image, presence: true

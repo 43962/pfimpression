@@ -11,7 +11,7 @@ class Admin::ReviewsController < ApplicationController
    private
 
   def review_params
-    params.require(:review).permit(:name, :height, :weight, :review, :item_name,)
+    params.require(:review).permit(:height, :weight, :review, :item_name,)
   end
 
 end

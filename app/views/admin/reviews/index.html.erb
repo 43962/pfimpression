@@ -19,7 +19,7 @@
               <td><%= review.customer_id %></td>
               <td>
                 <%= link_to admin_customer_path(review), style: "color: #000; text-decoration: underline;" do %>
-                <%= review.name %>
+                <%= review.customer.name %>
                 <% end %>
               </td>
               <td><%= review.item_name %></td>

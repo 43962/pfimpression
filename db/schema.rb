@@ -82,7 +82,6 @@ ActiveRecord::Schema.define(version: 2022_09_07_015732) do
   create_table "reviews", force: :cascade do |t|
     t.integer "customer_id"
     t.integer "category_id"
-    t.string "name"
     t.integer "height"
     t.integer "weight"
     t.string "item_name"

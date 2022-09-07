@@ -16,12 +16,7 @@
         <%= form_with model: @review do |f| %>
         
           <%= f.file_field :image, accept: "image/*", class: "w-100" %>
-          <div class="input-group mb-3 mt-4">
-            <div class="input-group-prepend">
-              <span class="input-group-text" aria-hidden="true"><i class="fas fa-building"></i></span>
-            </div>
-            <%= f.text_field :name, class:"form-control", placeholder:"ユーザー名" %>
-          </div>
+       
           <%= f.text_field :height, class:"form-control", placeholder:"身長(cm)" %>
           <%= f.text_field :weight, class:"form-control", placeholder:"体重(kg)" %>
           

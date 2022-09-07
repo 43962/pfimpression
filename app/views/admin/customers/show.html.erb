@@ -1,11 +1,28 @@
-<h3>マイページ</h3>
-
-<p>ユーザーネーム</p>
-<p><%= @customer.name %></p>
-<p>メールアドレス</p>
-<%= @customer.email %>
-<p>パスワード</p>
-<%= @customer.password %>
-
-<%= link_to "編集", edit_customer_path %>
-<%= link_to "退会する" %>
+<div class='container'>
+  <div class='row'>
+    <div class='col-md-8'>
+      <h4 class="my-4 text-center", style="background-color: #eee; width:290px; padding-left: 12px;"><b><%= @customer.name %>さんの会員詳細</b></h4>
+      <table class="table table-borderless">
+        <tr>
+　　　　　<td>ユーザーネーム</td>
+　　　　　<td><%= @customer.name %></td>
+　　　　</tr>
+　　　　<tr>
+　　　　　<td>メールアドレス</td>
+　　　　　<td><%= @customer.email %></td>
+　　　　</tr>
+　　　　<tr>
+　　　　　<td>パスワード</td>
+　　　　　<td><%= @customer.password %></td>
+　　　　</tr>　
+　　　　<tr>
+          <td></td>
+          <td>
+　　　　　　<%= link_to "編集", edit_customer_path %>
+　　　　　　<%= link_to "退会する" %>
+　　　　　</td>
+　　　　</tr>
+　     </table>
+     </div>
+  </div>
+</div>
