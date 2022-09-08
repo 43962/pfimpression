@@ -1,5 +1,5 @@
 class Public::ReviewsController < ApplicationController
-
+  before_action :set_search
   def index
    @review = Review.all
    @review = Review.page(params[:page]).per(8)

@@ -1,10 +1,10 @@
 class Admin::CategoriesController < ApplicationController
-  
+
   def index
     @categoty = Category.new
     @categories = Category.all
-  end  
-  
+  end
+
   def create
     @category = Category.new(category_params)
     if @category.save
@@ -13,27 +13,28 @@ class Admin::CategoriesController < ApplicationController
     else
       @categories = Category.all
       render :index
-    end  
+    end
   end
-  
+
   def edit
     @category = Category.find(params[:id])
-  end  
-    
+  end
+
   def update
     @category = Category.find(params[:id])
     if @category.update(category_params)
        flash[:notice] = "ジャンルを変更しました"
        redirect_to admin_categories_path
     else
+       flash[:notice] = "ジャンル名が空白または重複しています。"
        render "edit"
     end
-  end  
-  
+  end
+
   private
-  
+
   def category_params
     params.permit(:name)
-  end  
-    
+  end
+
 end
