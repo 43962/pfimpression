@@ -9,12 +9,12 @@
     <%= stylesheet_pack_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
-  
+
   <body class="d-flex flex-column vh-100">
     <header class="shadow-sm">
       <nav class="navbar navbar-expand-lg navbar-light">
         <div class="container">
-         
+
           <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown"
                         aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -34,7 +34,7 @@
             <li class="nav-item">
               <%= link_to 'マイページ', customer_path(current_customer.id), class: 'nav-link text-dark' %>
             </li>
-            
+
             <% elsif admin_signed_in? %>
               <li class="nav-item">
                 <%= link_to "レビュー一覧", admin_reviews_path, class: 'nav-link text-dark' %>
@@ -48,9 +48,9 @@
               <li class="nav-item">
                 <%= link_to "ログアウト", destroy_admin_session_path, method: :delete, class: 'nav-link text-dark' %>
               </li>
-            
+
             <% else %>
-            
+
              <li class="nav-item">
           　　<%= link_to 'ゲストログイン（閲覧用）', public_guest_sign_in_path, class: "btn btn-secondary btn-sm btn-block mb-3 sign_in", method: :post %>
         　 　 </li>
@@ -64,21 +64,19 @@
               <%= link_to '管理者の方はこちら', new_admin_session_path, class: 'nav-link text-dark' %>
              </li>
             <% end %>
-            
+
              <li>
-              <!--#`form_for`のRansack版-->
-              <%= search_form_for @search do |f| %>
-              <!--# nameカラムに対して部分一致検索ができる-->
-              <%= f.label :item_name_cont, "商品名検索" %>
-              <%= f.search_field :item_name_cont, value: "" %>
+                <!--#`form_for`のRansack版-->
+                <%= search_form_for @search do |f| %>
+                <!--# nameカラムに対して部分一致検索ができる-->
+                  <%= f.label :item_name_cont, "商品名検索" %>
+                  <%= f.search_field :item_name_cont, value: "" %>
+                  <!--# 検索ボタン-->
+                  <%= f.submit "検索" %>
+                <% end %>
              </li>
-             <li>
-              <!--# 検索ボタン-->
-              <div class="actions"><%= f.submit "検索" %></div>
-             </li>
-              <% end %>
             </ul>
-            
+
           </div>
         </div>
       </nav>

@@ -3,8 +3,18 @@ class Public::ReviewsController < ApplicationController
   def index
    @review = Review.all
    @review = Review.page(params[:page]).per(8)
+   # 検索結果
+    @review = @search.result(distinct: true)
    
   end
+ 
+ def set_search
+    # 検索オブジェクト
+    @search = Review.ransack(params[:q])
+    
+ end
+   
+ 
 
   def update
   end

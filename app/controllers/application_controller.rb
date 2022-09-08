@@ -12,12 +12,7 @@ class ApplicationController < ActionController::Base
 
   before_action :set_search
 
-  def set_search
-  # 検索オブジェクト
-   @search = Review.ransack(params[:q])
-   # 検索結果
-   @review = @search.result(distinct: true)
-  end
+  
 
   protected
 

@@ -24,7 +24,7 @@ end
     resources :items, only: [:index, :show]
     resources :customers, only: [:show, :edit, :update, :destroy]
     resources :reviews, only: [:index, :update, :destroy, :show, :new, :create] do
-       resources :comments, only: [:create]
+       resources :comments, only: [:create, :destroy]
     end
 
   end
