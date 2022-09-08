@@ -1,15 +1,40 @@
 
-<div class ="card w-75 mx-auto mt-4 shadow-lg">
-
-<div>
-  <%= image_tag @review.image,size: "300x500" %>
-  <p>商品名：<%= @review.item_name %></p>
-  <p>説明：<%= @review.review %></p>
-  <p>ユーザーネーム：<%= @review.customer.name %></p>
-  <p>投稿日：<%= @review.created_at.strftime('%Y/%m/%d') %></p>
-  <% if @review.customer == current_customer %>
-  <%= link_to "削除", review_path(@review), method: :delete %>
-  <% end %>
+<div class="card-list-container py-5">
+  <div class="card w-50 mx-auto mt-4 shadow-lg">
+    <div class="card-body">
+      <div class="row">
+        <div class="col-10">
+          <p class="card-title">
+             <%= image_tag @review.image,size: "300x500" %>
+          <p>商品名：<%= @review.item_name %></p>
+          <p>説明：<%= @review.review %></p>
+          <p>ユーザーネーム：<%= @review.customer.name %></p>
+          <p>投稿日：<%= @review.created_at.strftime('%Y/%m/%d') %></p>
+            <% if @review.customer == current_customer %>
+              <%= link_to "削除", review_path(@review), method: :delete %>
+            <% end %>
+          </p>
+          
+          <div>
+            <p>コメント件数：<%= @review.comments.count %></p>
+              <% @review.comments.each do |comment| %>
+                  <%= comment.customer.name %>
+                  <%= comment.created_at.strftime('%Y/%m/%d') %><%= comment.comment %>
+                <% if comment.customer == current_customer %>
+                  <%= link_to "削除", review_comment_path(comment.review, comment), method: :delete, data: {confirm: "削除しますか？"} %>
+                <% end %>
+              <% end %>
+          </div>
+          <div>
+             <%= form_with model: [@review, @comment] do |f| %>
+               <%= f.text_area :comment, rows: '5', placeholder: "コメントをここに" %>
+               <%= f.submit "送信する" %>
+             <% end %>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>  
   <!--<-% if @post_image.favorited_by?(current_user) %>-->
   <!--  <p>-->
   <!--    <-%= link_to post_image_favorites_path(@post_image), method: :delete do %>-->
@@ -25,20 +50,4 @@
   <!--<-% end %>-->
 </div>
 
-<div>
-  <p>コメント件数：<%= @review.comments.count %></p>
-  <% @review.comments.each do |comment| %>
-    <%= comment.customer.name %>
-    <%= comment.created_at.strftime('%Y/%m/%d') %><%= comment.comment %>
-    <% if comment.customer == current_customer %>
-      <%= link_to "削除", review_comment_path(comment.review, comment), method: :delete %>
-    <% end %>
-  <% end %>
-</div>
-<div>
-  <%= form_with model: [@review, @comment] do |f| %>
-    <%= f.text_area :comment, rows: '5', placeholder: "コメントをここに" %>
-    <%= f.submit "送信する" %>
-  <% end %>
-</div>
-</div>
+

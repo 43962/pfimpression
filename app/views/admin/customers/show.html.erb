@@ -12,14 +12,10 @@
 　　　　　<td><%= @customer.email %></td>
 　　　　</tr>
 　　　　<tr>
-　　　　　<td>パスワード</td>
-　　　　　<td><%= @customer.password %></td>
-　　　　</tr>　
-　　　　<tr>
           <td></td>
           <td>
-　　　　　　<%= link_to "編集", edit_customer_path %>
-　　　　　　<%= link_to "退会する" %>
+　　　　　　<%= link_to "編集", edit_customer_path, class: "btn btn-success btn-sm mt-2" %>
+　　　　　　<%= link_to "退会させる", admin_customer_path(@customer), method: :delete, class: 'btn btn-danger btn-sm mt-2 ml-5' %>
 　　　　　</td>
 　　　　</tr>
 　     </table>

@@ -3,6 +3,7 @@ class Public::ReviewsController < ApplicationController
   def index
    @review = Review.all
    @review = Review.page(params[:page]).per(8)
+   
   end
 
   def update

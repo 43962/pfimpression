@@ -1,12 +1,53 @@
+<div class="container">
+  <div class="row mt-5 mb-5">
+    <div class="col1 ml-5 mr-5">
+      <span></span>
+    </div>
+    <div class="col1">
+      <h3>マイページ</h3>
+    </div>
+  </div>
+ <div class="row">
+    <table class="table">
+      <tr>
+        <th>ユーザーネーム</th>
+        <td><%= @customer.name %></td>
+      </tr> 
+      <tr>
+        <th>メールアドレス</th>
+        <td><%= @customer.email %></td>
+      </tr>
+    </table>
+ </div>
+<div class="row">
+  <div class="col1 mt-1">
+   <%= link_to "編集", edit_customer_path, class: 'btn btn-success btn-sm' %>
+  </div>
+</div>
 
-<h3>マイページ</h3>
-
-<p>ユーザーネーム</p>
-<p><%= @customer.name %></p>
-<p>メールアドレス</p>
-<%= @customer.email %>
-<p>パスワード</p>
-<%= @customer.password %>
-
-<%= link_to "編集", edit_customer_path %>
-<%= link_to "退会する" %>
+<div class="card-list-container py-5">
+  <% @reviews.each do |review| %>
+  <div class="card w-50 mx-auto mt-4 shadow-lg">
+    <%= link_to review_path(review.id) do %>
+      <%= image_tag review.get_image, class:"card-img-top" %>
+    <% end %>
+    <div class="card-body">
+      <div class="row">
+        <div class="col-10">
+          <p class="card-title">
+            <%= link_to(review_path(review.id), class:"text-dark") do %>
+              <strong><i class="far fa-flag"></i><span><%= review.customer.name %></span></strong>
+            <% end %>
+          </p>
+          <span class="card-text">身長：<%= review.height %>cm</span>
+          <span class="card-text">体重：<%= review.weight %>kg</span>
+          <p></p>
+          <p class="card-text">商品名：<%= review.item_name %></p>
+          <p class="card-text">レビュー：<%= review.review %></p>
+          <span><i class="fas fa-user"></i> By <%= review.customer.name %> ｜ </span>
+          <span><%= link_to "#{review.comments.count} コメント", review_path(review.id), class:"text-dark" %></span>
+        </div>
+      </div>
+    </div>
+  </div>
+  <% end %>
