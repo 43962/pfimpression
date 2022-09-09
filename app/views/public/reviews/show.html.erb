@@ -12,6 +12,7 @@
           <p>投稿日：<%= @review.created_at.strftime('%Y/%m/%d') %></p>
             <% if @review.customer == current_customer %>
               <%= link_to "削除", review_path(@review), method: :delete %>
+              <%= link_to "編集", edit_review_path(@review) %>
             <% end %>
           </p>
 
@@ -21,7 +22,7 @@
                   <%= comment.customer.name %>
                   <%= comment.created_at.strftime('%Y/%m/%d') %><%= comment.comment %>
                 <% if comment.customer == current_customer %>
-                  <%= link_to "削除", review_comments_path(comment.review, comment), method: :delete, data: {confirm: "削除しますか？"} %>
+                  <%= link_to "削除", review_comment_path(comment.review, comment), method: :delete, data: {confirm: "削除しますか？"} %>
                 <% end %>
               <% end %>
           </div>

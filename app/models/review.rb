@@ -3,10 +3,12 @@ class Review < ApplicationRecord
   belongs_to :customer
   has_many :comments, dependent: :destroy
 
+with_options presence: true, on: :publicize do
   validates :height, presence: true
   validates :weight, presence: true
   validates :item_name, presence: true
-  validates :review, presence: true
+  validates :review, presence: true, length: { maximum: 80 }
+end  
 
   def get_image
      unless image.attached?

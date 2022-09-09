@@ -13,7 +13,9 @@ devise_for :admin, skip: [:registrations, :passwords] ,controllers: {
 }
 
 namespace :admin do
-  resources :reviews, only: [:index, :show]
+  resources :reviews, only: [:index, :show] do
+    resources :comments, only: [:destroy]
+  end
   resources :categories, only: [:index, :create, :edit, :update]
   resources :customers, only: [:index, :show, :destroy]
 
@@ -23,7 +25,11 @@ end
     root 'homes#top'
     resources :items, only: [:index, :show]
     resources :customers, only: [:show, :edit, :update, :destroy]
-    resources :reviews, only: [:index, :update, :destroy, :show, :new, :create] do
+    resources :reviews, only: [:index, :update, :destroy, :show, :new, :create, :edit,] do
+      #下書き一覧
+      collection do
+       get 'draft_index'
+      end
        resources :comments, only: [:create, :destroy]
     end
 

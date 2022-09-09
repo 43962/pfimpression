@@ -2,7 +2,7 @@
         <div class="row">
             <div class="col-md-10">
                 <h2 class="mb-3 border_bottom_dark">カテゴリー一覧・追加</h2>
-                    <%= form_with model: @category, url: admin_categories_path, local: true do |f| %>
+                    <%= form_with model: @category do |f| %>
                         <!--<-%= render "layouts/errors", model: @category %>-->
                         <div class="form-group">
                             <%=f.label :カテゴリー名 %>
