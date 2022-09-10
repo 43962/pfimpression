@@ -68,13 +68,6 @@ class Public::ReviewsController < ApplicationController
   def create
         @review = Review.new(review_params)
         @review.customer_id = current_customer.id
-        # if @review.save
-        #  redirect_to reviews_path
-        # else
-        #   render:new
-        # end
-
-        # @review = REview.new(review_params)
         # 投稿ボタンを押下した場合
         if params[:post]
           if @review.save(context: :publicize)

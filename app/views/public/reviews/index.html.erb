@@ -14,13 +14,12 @@
               <strong><i class="far fa-flag"></i><span><%= review.customer.name %></span></strong>
             <% end %>
           </p>
-          <span class="card-text">身長：<%= review.height %>cm</span>
-          <span class="card-text">体重：<%= review.weight %>kg</span>
+          <p class="card-text">身長：<%= review.height %>cm 体重：<%= review.weight %>kg</p>
           <!--<p class="card-text">カテゴリー:<-%= review.category_id.name %></p>-->
           <p class="card-text">商品名：<%= review.item_name %></p>
           <p class="card-text">レビュー：<%= review.review %></p>
           <span><i class="fas fa-user"></i> By <%= review.customer.name %> ｜
-          <span><%= link_to "#{review.comments.count} コメント", review_path(review.id), class:"text-dark" %></span>
+          <span><%= link_to "コメント#{review.comments.count}", review_path(review.id), class:"text-dark" %></span>
         </div>
       </div>
     </div>

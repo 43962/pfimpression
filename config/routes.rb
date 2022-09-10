@@ -23,7 +23,7 @@ end
 
   scope module: :public do
     root 'homes#top'
-    resources :items, only: [:index, :show]
+    resources :categories, only: [:index, :show]
     resources :customers, only: [:show, :edit, :update, :destroy]
     resources :reviews, only: [:index, :update, :destroy, :show, :new, :create, :edit,] do
       #下書き一覧

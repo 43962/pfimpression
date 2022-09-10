@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Pfimpression</title>
+    <title>PFimpression</title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
@@ -14,7 +14,7 @@
     <header class="shadow-sm">
       <nav class="navbar navbar-expand-lg navbar-light">
         <div class="container">
-
+          <a class="navbar-brand p-3" href="/"><%= image_tag 'logo.png', size: '200x70' %></a>
           <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown"
                         aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -26,7 +26,7 @@
               <%= link_to "ログアウト", destroy_customer_session_path, method: :delete, class: 'nav-link text-dark' %>
             </li>
             <li class="nav-item">
-              <%= link_to '投稿フォーム', new_review_path, class: 'nav-link text-dark' %>
+              <%= link_to '投稿', new_review_path, class: 'nav-link text-dark' %>
             </li>
             <li class="nav-item">
               <%= link_to 'レビュー一覧', reviews_path, class: 'nav-link text-dark' %>
@@ -34,6 +34,11 @@
             <li class="nav-item">
               <%= link_to 'マイページ', customer_path(current_customer.id), class: 'nav-link text-dark' %>
             </li>
+             <li class="nav-item">
+              <%= link_to 'カテゴリー', categories_path, class: 'nav-link text-dark' %>
+            </li>
+
+
 
             <% elsif admin_signed_in? %>
               <li class="nav-item">
@@ -90,7 +95,7 @@
         <div class="row no-gutters">
           <div class="col-md-4">
             <p>洋服の感想や印象を共有するレビューサイト</p>
-            <!--<-%= image_tag('logo-white.png') %>-->
+            <a class="navbar-brand p-2" href="/"><%= image_tag 'logo2.png', size: '200x70' %></a>
           </div>
           <div class="col-md-8">
             <h6 class="text-white mt-2 mb-3">Link</h6>

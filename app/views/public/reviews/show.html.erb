@@ -1,37 +1,36 @@
 
 <div class="card-list-container py-5">
   <div class="card w-50 mx-auto mt-4 shadow-lg">
+    <%= image_tag @review.get_image, class:"card-img-top" %>
     <div class="card-body">
       <div class="row">
         <div class="col-10">
-          <p class="card-title">
-             <%= image_tag @review.image,size: "300x500" %>
-          <p>商品名：<%= @review.item_name %></p>
-          <p>説明：<%= @review.review %></p>
-          <p>ユーザーネーム：<%= @review.customer.name %></p>
-          <p>投稿日：<%= @review.created_at.strftime('%Y/%m/%d') %></p>
-            <% if @review.customer == current_customer %>
-              <%= link_to "削除", review_path(@review), method: :delete %>
-              <%= link_to "編集", edit_review_path(@review) %>
-            <% end %>
-          </p>
-
+            <p class="card-title">
+              <p>ユーザー：<%= @review.customer.name %></p>
+              <p>身長：<%= @review.height %>cm 体重：<%= @review.weight %>kg</p>
+              <p>商品名：<%= @review.item_name %></p>
+              <p>説明：<%= @review.review %></p>
+              <p>投稿日：<%= @review.created_at.strftime('%Y/%m/%d') %></p>
+                <% if @review.customer == current_customer %>
+                  <%= link_to "削除", review_path(@review), method: :delete %>
+                  <%= link_to "編集", edit_review_path(@review) %>
+                <% end %>
+            </p>
           <div>
-            <p>コメント件数：<%= @review.comments.count %></p>
-              <% @review.comments.each do |comment| %>
-                  <%= comment.customer.name %>
+            <p>コメント：<%= @review.comments.count %></p>
+              <p><% @review.comments.each do |comment| %>
+                  <p><%= comment.customer.name %>
                   <%= comment.created_at.strftime('%Y/%m/%d') %><%= comment.comment %>
                 <% if comment.customer == current_customer %>
                   <%= link_to "削除", review_comment_path(comment.review, comment), method: :delete, data: {confirm: "削除しますか？"} %>
-                <% end %>
-              <% end %>
+                <% end %></p>
+              <% end %></p>
           </div>
           <div>
              <%= form_with model: [@review, @comment] do |f| %>
-               <%= f.text_area :comment, rows: '5', placeholder: "コメントをここに" %>
+               <%= f.text_area :comment, placeholder: "コメントをここに" %>
                <%= f.submit "送信する" %>
              <% end %>
-
           </div>
         </div>
       </div>
