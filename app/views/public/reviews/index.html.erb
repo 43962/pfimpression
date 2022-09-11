@@ -10,16 +10,12 @@
       <div class="row">
         <div class="col-10">
           <p class="card-title">
-            <%= link_to(review_path(review.id), class:"text-dark") do %>
-              <strong><i class="far fa-flag"></i><span><%= review.customer.name %></span></strong>
-            <% end %>
+              <i class="fas fa-user"></i> By: <span><%= review.customer.name %></span> 身長: <%= review.height %>cm 体重: <%= review.weight %>kg
           </p>
-          <p class="card-text">身長：<%= review.height %>cm 体重：<%= review.weight %>kg</p>
           <!--<p class="card-text">カテゴリー:<-%= review.category_id.name %></p>-->
-          <p class="card-text">商品名：<%= review.item_name %></p>
-          <p class="card-text">レビュー：<%= review.review %></p>
-          <span><i class="fas fa-user"></i> By <%= review.customer.name %> ｜
-          <span><%= link_to "コメント#{review.comments.count}", review_path(review.id), class:"text-dark" %></span>
+          <p class="card-text"><i class="fas fa-tshirt"></i> 商品名: <%= review.item_name %></p>
+          <p class="card-text"><i class="fas fa-pen"></i> レビュー: <%= review.review %></p>
+          <i class="far fa-comment"></i> <%= link_to "コメント: #{review.comments.count}", review_path(review.id), class:"text-dark" %>
         </div>
       </div>
     </div>

@@ -29,7 +29,7 @@
               <%= link_to '投稿', new_review_path, class: 'nav-link text-dark' %>
             </li>
             <li class="nav-item">
-              <%= link_to 'レビュー一覧', reviews_path, class: 'nav-link text-dark' %>
+              <%= link_to 'レビュー', reviews_path, class: 'nav-link text-dark' %>
             </li>
             <li class="nav-item">
               <%= link_to 'マイページ', customer_path(current_customer.id), class: 'nav-link text-dark' %>
@@ -77,10 +77,16 @@
                   <%= f.label :item_name_cont, "商品名検索" %>
                   <%= f.search_field :item_name_cont, value: "" %>
                   <!--# 検索ボタン-->
-                  <%= f.submit "検索" %>
+                  <%= f.submit "🔎" %>
                 <% end %>
              </li>
             </ul>
+
+<div class="burger-btn">
+      <span class="bar bar_top"></span>
+      <span class="bar bar_mid"></span>
+      <span class="bar bar_bottom"></span>
+    </div>
 
           </div>
         </div>

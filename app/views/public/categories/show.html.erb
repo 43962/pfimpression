@@ -1,12 +1,12 @@
 <div class="item-index-box">
 
-    <!-- ジャンル選択のサイドバー -->
-    <%= render "customer/categories_sidebar", categories: @categories %>
-    <!-- ジャンル選択のサイドバー -->
- <h3><% @category.name %>一覧</h3>
-    
+ <!--    ジャンル選択のサイドバー -->
+ <!--   <-%= render "customer/categories_sidebar", categories: @categories %>-->
+ <!--    ジャンル選択のサイドバー -->
+ <!--<h3><-% @category.name %>一覧</h3>-->
+
     <div class="card-list-container py-5">
-      <% @category.reviews.each do |review| %>
+      <% @category.review_id.each do |review| %>
         <div class="card w-50 mx-auto mt-4 shadow-lg">
           <%= link_to review_path(review.id) do %>
             <%= image_tag review.get_image, class:"card-img-top" %>
@@ -21,7 +21,7 @@
                 </p>
                 <span class="card-text">身長：<%= review.height %>cm</span>
                 <span class="card-text">体重：<%= review.weight %>kg</span>
-                <!--<p class="card-text">カテゴリー:<-%= review.category_id.name %></p>-->
+                <p class="card-text">カテゴリー:<%= review.category_id.name %></p>
                 <p class="card-text">商品名：<%= review.item_name %></p>
                 <p class="card-text">レビュー：<%= review.review %></p>
                 <span><i class="fas fa-user"></i> By <%= review.customer.name %> ｜

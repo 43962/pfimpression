@@ -1,11 +1,14 @@
 class Public::ReviewsController < ApplicationController
   before_action :set_search
   def index
-   #公開されてるレビューのみ表示
-   @review = Review.where(is_draft: false)
-   @review = Review.page(params[:page]).per(8)
    # 検索結果
-   @review = @search.result(distinct: true)
+   review = @search.result(distinct: true)
+   review = if params[:category_id]
+              review.where(category_id: params[:category_id])
+            else
+              review
+            end
+   @review = review.page(params[:page]).per(8)
   end
 
   def draft_index
@@ -15,6 +18,7 @@ class Public::ReviewsController < ApplicationController
 
   def set_search
     # 検索オブジェクト
+     #公開されてるレビューのみ表示
     @search = Review.ransack(params[:q])
   end
 
@@ -95,7 +99,7 @@ class Public::ReviewsController < ApplicationController
   private
 
   def review_params
-    params.require(:review).permit(:height, :weight, :review, :item_name, :image)
+    params.require(:review).permit(:height, :weight, :review, :item_name, :image, :category_id)
   end
 
 

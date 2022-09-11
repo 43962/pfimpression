@@ -2,6 +2,6 @@
 
 <% @categories.each do |category| %>
 
-<p><%= link_to category.name, category_path(category) %></p>
+<p><%= link_to category.name, reviews_path(category_id: category.id) %></p>
 
 <% end %>

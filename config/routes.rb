@@ -16,7 +16,7 @@ namespace :admin do
   resources :reviews, only: [:index, :show] do
     resources :comments, only: [:destroy]
   end
-  resources :categories, only: [:index, :create, :edit, :update]
+  resources :categories, only: [:index, :create, :edit, :update, :destroy]
   resources :customers, only: [:index, :show, :destroy]
 
 end

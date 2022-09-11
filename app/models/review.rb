@@ -4,6 +4,8 @@ class Review < ApplicationRecord
   belongs_to :category
   has_many :comments, dependent: :destroy
 
+  scope :published, -> { where(is_draft: false) }
+
 with_options presence: true, on: :publicize do
   validates :height, presence: true
   validates :weight, presence: true
