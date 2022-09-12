@@ -87,7 +87,7 @@ ActiveRecord::Schema.define(version: 2022_09_07_015732) do
     t.integer "weight"
     t.string "item_name"
     t.text "review"
-    t.boolean "is_draft"
+    t.boolean "is_draft", default: true
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end

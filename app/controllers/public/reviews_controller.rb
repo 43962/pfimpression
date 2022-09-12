@@ -2,7 +2,7 @@ class Public::ReviewsController < ApplicationController
   before_action :set_search
   def index
    # 検索結果
-  # @search = Review.where(is_draft: false).ransack(params[:q])
+   @search = Review.where(is_draft: false).ransack(params[:q])
    review = @search.result(distinct: true)
    review = if params[:category_id]
               review.where(category_id: params[:category_id])

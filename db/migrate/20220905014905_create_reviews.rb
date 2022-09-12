@@ -7,7 +7,7 @@ class CreateReviews < ActiveRecord::Migration[6.1]
       t.integer :weight
       t.string :item_name
       t.text :review
-      t.boolean :is_draft
+      t.boolean :is_draft, default: true
       t.timestamps
     end
   end
