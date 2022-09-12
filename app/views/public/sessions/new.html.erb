@@ -1,13 +1,8 @@
 <div class="container">
 
   <div class="row">
-    <div class="col3-md">
+    <div class="col3-md offset-5 mt-5">
       <h3 class="p-2">Log in</h3>
-    </div>
-  </div>
-  <div class="row">
-    <div class="col-md-3">
-      <p>会員の方はこちらからログイン</p>
     </div>
   </div>
   
@@ -15,7 +10,7 @@
     <div class="col-md-8">
 
       <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-        <table class="table table-borderless table-sm">
+        <table class="table table-borderless table-sm mt-5 mb-5 offset-4">
           
          <div class="field">
            <tr>
@@ -52,11 +47,12 @@
 </div>
 
          <div class="row">
-           <div class="col3-md">
-             <h5 class="p-2">会員登録がお済みでない方</h5>
+           <div class="col3-md offset-5 mt-5">
+             <h5 class="p-2">Not signed up?</h5>
+              <p><%= link_to "Sign up", new_customer_registration_path %></p>
            </div>
          </div>
-        <p><%= link_to "こちら", new_customer_registration_path %>から新規登録を行ってください。</p>
+
 
 </div>
 

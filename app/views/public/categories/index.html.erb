@@ -1,7 +1,8 @@
-<p>カテゴリー</p>
+<h3>Category</h3>
 
 <% @categories.each do |category| %>
-
+<div class="d-flex justify-content-center">  
 <p><%= link_to category.name, reviews_path(category_id: category.id) %></p>
+</div>
 
 <% end %>

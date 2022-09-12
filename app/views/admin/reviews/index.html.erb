@@ -1,19 +1,19 @@
 <div class='container'>
   <div class='row'>
-    <div class='col-md-8 offset-2'>
-      <h4 class="my-4", style="background-color: #eee; width:120px; padding-left: 12px;"><b>レビュー一覧</b></h4>
+    <div class='col-md-8 offset-1'>
+      <h3 class="my-4", style="width:120px; padding-left: 12px"><b>Reviews</b></h3>
 
         <table class="table">
           <thead>
             <tr class="table-active">
-              <th>会員ID</th>
-              <th style="text-decoration: underline;">ユーザー名</th>
-              <th>商品名</th>
-              <th>レビュー内容</th>
+              <th>CustomerID</th>
+              <th style="text-decoration: underline;">user name</th>
+              <th>item name</th>
+              <th>review</th>
             </tr>
           </thead>
 
-          <% @review.each do |review| %>
+          <% @reviews.each do |review| %>
           <tbody>
             <tr>
               <td><%= review.customer_id %></td>
@@ -23,11 +23,6 @@
                 <% end %>
               </td>
               <td><%= review.item_name %></td>
-              <!--<-% if customer.is_deleted == false %>-->
-              <!--  <td class="text-success font-weight-bold">有効</td>-->
-              <!--<-% else %>-->
-              <!--  <td class="text-secondary font-weight-bold">退会</td>-->
-              <!--<-% end %>-->
               <td><%= link_to "詳細へ", admin_review_path(review) %></td>
             </tr>
           </tbody>
@@ -38,7 +33,7 @@
         </table>
 
         <ul class="pagination justify-content-center">
-          <!--<-%= paginate @customers %>-->
+          <%= paginate @reviews %>
         </ul>
 
     </div>

@@ -23,70 +23,89 @@
             <ul class="navbar-nav ml-auto">
             <% if customer_signed_in? %>
             <li class="nav-item">
-              <%= link_to "ログアウト", destroy_customer_session_path, method: :delete, class: 'nav-link text-dark' %>
+              <%= link_to destroy_customer_session_path, method: :delete, class: 'nav-link text-dark' do %>
+             <i class="fas fa-sign-out-alt"></i>
+              Log out
+              <% end %>
             </li>
             <li class="nav-item">
-              <%= link_to '投稿', new_review_path, class: 'nav-link text-dark' %>
+              <%= link_to new_review_path, class: 'nav-link text-dark' do %>
+              <i class="fas fa-plus"></i>
+              Post
+              <% end %>
             </li>
             <li class="nav-item">
-              <%= link_to 'レビュー', reviews_path, class: 'nav-link text-dark' %>
+              <%= link_to reviews_path, class: 'nav-link text-dark' do %>
+              <i class="fas fa-pen"></i>
+              Review
+              <% end %>
             </li>
             <li class="nav-item">
-              <%= link_to 'マイページ', customer_path(current_customer.id), class: 'nav-link text-dark' %>
+              <%= link_to customer_path(current_customer.id), class: 'nav-link text-dark' do %>
+               <i class="fas fa-user"></i>
+               My Page
+               <% end %>
             </li>
              <li class="nav-item">
-              <%= link_to 'カテゴリー', categories_path, class: 'nav-link text-dark' %>
+              <%= link_to categories_path, class: 'nav-link text-dark' do %>
+               <i class="fas fa-tshirt"></i>
+               Category
+               <% end %>
             </li>
-
-
 
             <% elsif admin_signed_in? %>
               <li class="nav-item">
-                <%= link_to "レビュー一覧", admin_reviews_path, class: 'nav-link text-dark' %>
+                <%= link_to "Reviews", admin_reviews_path, class: 'nav-link text-dark' %>
               </li>
               <li class="nav-item">
-                <%= link_to "会員一覧", admin_customers_path, class: 'nav-link text-dark' %>
+                <%= link_to "Customers", admin_customers_path, class: 'nav-link text-dark' %>
               </li>
               <li class="nav-item">
-                <%= link_to "カテゴリ一覧", admin_categories_path, class: 'nav-link text-dark' %>
+                <%= link_to "Categories", admin_categories_path, class: 'nav-link text-dark' %>
               </li>
               <li class="nav-item">
-                <%= link_to "ログアウト", destroy_admin_session_path, method: :delete, class: 'nav-link text-dark' %>
+                <%= link_to "Log out", destroy_admin_session_path, method: :delete, class: 'nav-link text-dark' %>
               </li>
 
             <% else %>
 
              <li class="nav-item">
-          　　<%= link_to 'ゲストログイン（閲覧用）', public_guest_sign_in_path, class: "btn btn-secondary btn-sm btn-block mb-3 sign_in", method: :post %>
-        　 　 </li>
-             <li class="nav-item">
-              <%= link_to "新規登録", new_customer_registration_path, class: 'nav-link text-dark' %>
+              <%= link_to public_guest_sign_in_path, class: "nav-link text-dark mb-3 sign_in", method: :post do %>
+             <i class="fas fa-users"></i>
+              Guest login
+              <% end %>
              </li>
              <li class="nav-item">
-              <%= link_to "ログイン", new_customer_session_path, class: 'nav-link text-dark' %>
+              <%= link_to new_customer_registration_path, class: 'nav-link text-dark' do %>
+              <i class="fas fa-user-plus"></i>
+              Sign up
+              <% end %>
              </li>
              <li class="nav-item">
-              <%= link_to '管理者の方はこちら', new_admin_session_path, class: 'nav-link text-dark' %>
+              <%= link_to new_customer_session_path, class: 'nav-link text-dark' do %>
+              <i class="fas fa-sign-in-alt"></i>
+              Log in
+                <% end %>
+             </li>
+             <li class="nav-item">
+              <%= link_to new_admin_session_path, class: 'nav-link text-dark' do %>
+              <i class="fas fa-building"></i>
+              Admin
+              <% end %>
              </li>
             <% end %>
 
-             <li>
+             <li class="nav-item">
                 <!--#`form_for`のRansack版-->
                 <%= search_form_for @search do |f| %>
                 <!--# nameカラムに対して部分一致検索ができる-->
-                  <%= f.label :item_name_cont, "商品名検索" %>
+                  <%= f.label :item_name_cont, "Search" %>
                   <%= f.search_field :item_name_cont, value: "" %>
                   <!--# 検索ボタン-->
                   <%= f.submit "🔎" %>
                 <% end %>
              </li>
             </ul>
-
-<div class="burger-btn">
-      <span class="bar bar_top"></span>
-      <span class="bar bar_mid"></span>
-      <span class="bar bar_bottom"></span>
-    </div>
 
           </div>
         </div>
@@ -96,21 +115,21 @@
     <main class="mb-auto">
     <%= yield %>
     </main>
-    <footer class="bg-dark text-white pt-5 pb-4">
+    <footer class="pt-5 pb-4" style="background-color:#F5F5F5" >
       <div class="container">
         <div class="row no-gutters">
           <div class="col-md-4">
-            <p>洋服の感想や印象を共有するレビューサイト</p>
+            <p>A review site for sharing impressions of clothes.</p>
             <a class="navbar-brand p-2" href="/"><%= image_tag 'logo2.png', size: '200x70' %></a>
           </div>
           <div class="col-md-8">
-            <h6 class="text-white mt-2 mb-3">Link</h6>
+            <h6 class="text-dark offset-md-3 mt-2 mb-6">Link</h6>
             <ul class="p-0 list-unstyled">
               <li>
-                <a href="" title="About" class="text-white-50">会社概要</a>
+                <a href="" title="About" class="text-dark-50 offset-md-3">会社概要</a>
               </li>
               <li>
-                <a href="" title="License informations" class="text-white-50">プライバシーポリシー</a>
+                <a href="" title="License informations" class="text-dark-50 offset-md-3">プライバシーポリシー</a>
               </li>
             </ul>
           </div>

@@ -4,20 +4,20 @@
       <h4 class="my-4 text-center", style="background-color: #eee; width:290px; padding-left: 12px;"><b><%= @customer.name %>さんの会員詳細</b></h4>
       <table class="table table-borderless">
         <tr>
-　　　　　<td>ユーザーネーム</td>
-　　　　　<td><%= @customer.name %></td>
-　　　　</tr>
-　　　　<tr>
-　　　　　<td>メールアドレス</td>
-　　　　　<td><%= @customer.email %></td>
-　　　　</tr>
-　　　　<tr>
+          <td>ユーザーネーム</td>
+          <td><%= @customer.name %></td>
+        </tr>
+        <tr>
+          <td>メールアドレス</td>
+          <td><%= @customer.email %></td>
+        </tr>
+        <tr>
           <td></td>
           <td>
-　　　　　　<%= link_to "退会させる", admin_customer_path(@customer), method: :delete, data: {confirm: "削除しますか？"}, class: 'btn btn-danger btn-sm mt-2 ml-5' %>
-　　　　　</td>
-　　　　</tr>
-　     </table>
+            <%= link_to "退会させる", admin_customer_path(@customer), method: :delete, data: {confirm: "削除しますか？"}, class: 'btn btn-danger btn-sm mt-2 ml-5' %>
+          </td>
+        </tr>
+      </table>
      </div>
   </div>
 </div>

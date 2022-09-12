@@ -1,20 +1,20 @@
 <div class="container">
-  <div class="row mt-5 mb-5">
+  <div class="row mt-5 mb-5 offset-4">
     <div class="col1 ml-5 mr-5">
       <span></span>
     </div>
     <div class="col1">
-      <h3>マイページ</h3>
+      <h3>My page</h3>
     </div>
   </div>
  <div class="row">
     <table class="table">
       <tr>
-        <th>ユーザーネーム</th>
+        <th>user name</th>
         <td><%= @customer.name %></td>
       </tr>
       <tr>
-        <th>メールアドレス</th>
+        <th>e-mail</th>
         <td><%= @customer.email %></td>
       </tr>
     </table>
@@ -38,7 +38,7 @@
           <p class="card-title">
              <i class="fas fa-user"></i> By: <span><%= review.customer.name %></span> 身長: <%= review.height %>cm 体重: <%= review.weight %>kg
           </p>
-            <!--<p class="card-text">カテゴリー:<-%= review.category_id.name %></p>-->
+            <p class="card-text">カテゴリー:<%= review.category.name %></p>
           <p></p>
           <p class="card-text"><i class="fas fa-tshirt"></i> 商品名: <%= review.item_name %></p>
           <p class="card-text"><i class="fas fa-pen"></i> レビュー: <%= review.review %></p>

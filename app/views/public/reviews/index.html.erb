@@ -1,27 +1,27 @@
 <h3>Review</h3>
 
-<div class="card-list-container py-5">
-  <% @review.each do |review| %>
-  <div class="card w-50 mx-auto mt-4 shadow-lg">
-    <%= link_to review_path(review.id) do %>
-      <%= image_tag review.get_image, class:"card-img-top" %>
-    <% end %>
-    <div class="card-body">
-      <div class="row">
-        <div class="col-10">
-          <p class="card-title">
-              <i class="fas fa-user"></i> By: <span><%= review.customer.name %></span> 身長: <%= review.height %>cm 体重: <%= review.weight %>kg
-          </p>
-          <!--<p class="card-text">カテゴリー:<-%= review.category_id.name %></p>-->
-          <p class="card-text"><i class="fas fa-tshirt"></i> 商品名: <%= review.item_name %></p>
-          <p class="card-text"><i class="fas fa-pen"></i> レビュー: <%= review.review %></p>
-          <i class="far fa-comment"></i> <%= link_to "コメント: #{review.comments.count}", review_path(review.id), class:"text-dark" %>
+<div class="container">
+  <div class="row">
+    <% @review.each do |review| %>
+      <div class="col-lg-4 mt-4">
+        <div class="card">
+           <%= link_to review_path(review.id) do %>
+            <%= image_tag review.get_image, class:"card-img-top" %>
+           <% end %>
+          <div class="card-body">
+            <p class="card-title">
+              <i class="fas fa-user"></i><span> <%= review.customer.name %> </span><%= review.height %>cm <%= review.weight %>kg
+            </p>
+            <!--<p class="card-text"><i class="fas fa-tags"></i> <-%= review.category.name %></p>-->
+            <p class="card-text"><i class="fas fa-tshirt"></i> <%= review.item_name %></p>
+            <p class="card-text"><i class="fas fa-pen"></i> <%= review.review %></p>
+          </div>
         </div>
       </div>
-    </div>
+    <% end %>
   </div>
-  <% end %>
+</div>
 
-  <div style="margin:0 auto;">
-  <!--<-%= paginate @review %>-->
+<div class="d-flex justify-content-center">
+  <%= paginate @review %>
 </div>

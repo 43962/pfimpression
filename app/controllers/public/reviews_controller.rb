@@ -2,13 +2,14 @@ class Public::ReviewsController < ApplicationController
   before_action :set_search
   def index
    # 検索結果
+  # @search = Review.where(is_draft: false).ransack(params[:q])
    review = @search.result(distinct: true)
    review = if params[:category_id]
               review.where(category_id: params[:category_id])
             else
               review
             end
-   @review = review.page(params[:page]).per(8)
+   @review = review.page(params[:page]).per(6)
   end
 
   def draft_index
@@ -66,7 +67,6 @@ class Public::ReviewsController < ApplicationController
 
   def new
     @review = Review.new
-
   end
 
   def create

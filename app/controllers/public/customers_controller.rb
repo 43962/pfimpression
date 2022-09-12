@@ -3,7 +3,7 @@ class Public::CustomersController < ApplicationController
 
    def show
      @customer = Customer.find(params[:id])
-     @reviews = @customer.review.all
+     @reviews = @customer.review.where(is_draft: false)
    end
 
    def edit
@@ -21,9 +21,9 @@ class Public::CustomersController < ApplicationController
      if @customer.destroy
        flash[:notice] = "退会が完了しました。"
        redirect_to root_path
-     else 
+     else
       flash[:alret] = "退会に失敗しました。"
-     end  
+     end
    end
 
    def create

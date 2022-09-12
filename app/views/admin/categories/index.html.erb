@@ -1,9 +1,8 @@
 <div class="container">
         <div class="row">
-            <div class="col-md-10">
-                <h2 class="mb-3 border_bottom_dark">カテゴリー一覧・追加</h2>
-                    <%= form_with model: @category, url: admin_categories_path do |f| %>
-                        <!--<-%= render "layouts/errors", model: @category %>-->
+            <div class="col-md-3 offset-md-1 mb-5 mt-5">
+                <h3>Categories</h3>
+                    <p><%= form_with model: @category, url: admin_categories_path do |f| %></p>
                         <div class="form-group">
                             <%=f.text_field :name, placeholder: "カテゴリー名", class:'form-control' %>
                         </div>
@@ -13,23 +12,22 @@
                     <% end %>
             </div>
         </div>
-        <div class="row mt-5">
+        <div class="row mt-2">
             <div class="col-md-10">
                 <table class="table table-light">
                     <thead class="table-active text-center">
                         <tr>
-                            <th class="text-white bg-dark">カテゴリー</th>
-                            <th class="text-white bg-dark"></th>
+                            <th class>CATEGORIES</th>
+                            <th class></th>
                         </tr>
                     </thead>
                     <tbody>
                         <% @categories.each do |category| %>
                             <tr>
                                 <td class="text-center"><%= category.name %></td>
-                                <td class="text-right"><%= link_to "編集する", edit_admin_category_path(category), class: "btn btn-success" %></td>
+                                <td class="text-right"><%= link_to "編集する", edit_admin_category_path(category), class: "btn btn-secondary" %></td>
                             </tr>
                         <% end %>
-
                     </tbody>
                 </table>
             </div>
