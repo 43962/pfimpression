@@ -1,8 +1,16 @@
-<h3>Category</h3>
+<div class="container">
+  <div class="row mt-5 mb-5 offset-4">
+    <div class="col1 ml-5 mr-5">
+      <span></span>
+    </div>
+    <div class="col1">
+      <h3>Category</h3>
+    </div>
+  </div>
 
-<% @categories.each do |category| %>
-<div class="d-flex justify-content-center">  
-<p><%= link_to category.name, reviews_path(category_id: category.id) %></p>
-</div>
-
-<% end %>
+    <% @categories.each do |category| %>
+    <div class="d-flex justify-content-center">
+      <p><%= link_to category.name, reviews_path(category_id: category.id) %></p>
+    </div>
+    <% end %>
+</div>  

@@ -6,18 +6,18 @@
       <div class="row">
         <div class="col-10">
             <p class="card-title">
-              <p><i class="fas fa-user"></i> By: <%= @review.customer.name %> 身長: <%= @review.height %>cm 体重: <%= @review.weight %>kg</p>
-               <!--<p class="card-text">カテゴリー:<-%= review.category_id.name %></p>-->
-              <p><i class="fas fa-tshirt"></i> 商品名: <%= @review.item_name %></p>
-              <p><i class="fas fa-pen"></i> レビュー: <%= @review.review %></p>
-              <p><i class="fas fa-calendar-week"></i> 投稿日: <%= @review.created_at.strftime('%Y/%m/%d') %></p>
+              <p><i class="fas fa-user"></i> <%= @review.customer.name %> <%= @review.height %>cm <%= @review.weight %>kg</p>
+               <p class="card-text"><i class="fas fa-tags"></i> <%= @review.category.name %></p>
+              <p><i class="fas fa-tshirt"></i> <%= @review.item_name %></p>
+              <p><i class="fas fa-pen"></i> <%= @review.review %></p>
+              <p><i class="fas fa-calendar-week"></i> <%= @review.created_at.strftime('%Y/%m/%d') %></p>
                 <% if @review.customer == current_customer %>
                   <%= link_to "削除", review_path(@review), method: :delete %>
                   <%= link_to "編集", edit_review_path(@review) %>
                 <% end %>
             </p>
           <div>
-            <p><i class="far fa-comment"></i> コメント: <%= @review.comments.count %></p>
+            <p><i class="far fa-comment"></i> <%= @review.comments.count %></p>
               <p><% @review.comments.each do |comment| %>
                   <p><%= comment.customer.name %>
                   <%= comment.created_at.strftime('%Y/%m/%d') %><%= comment.comment %>

@@ -1,50 +1,41 @@
 <div class="container">
-
   <div class="row">
     <div class="col3-md offset-5 mt-5">
       <h3 class="p-2">Log in</h3>
     </div>
   </div>
-  
-  <div class="row">
-    <div class="col-md-8">
-
-      <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-        <table class="table table-borderless table-sm mt-5 mb-5 offset-4">
-          
-         <div class="field">
-           <tr>
-             <th><%= f.label :"user name" %></th>
-             <td><%= f.text_field :name, autofocus: true, autocomplete: "name" %></td>
-           </tr> 
-         </div>
-         
-         <div class="field">
-           <tr>
-             <td><%= f.label :email %></td>
-             <th><%= f.email_field :email, autofocus: true, autocomplete: "email" %></th>
-           </tr>
-         </div>
-
-         <div class="field">
-           <tr>
-             <td><%= f.label :password %></td>
-             <th><%= f.password_field :password, autocomplete: "current-password" %>
-           </tr>
-         </div>
-
-  
-
-         <div class="actions">
-           <tr>
-             <td><%= f.submit "Log in" %></td>
-           </tr>
-         </div>
-        </table>
-      <% end %>
-      
-  </div>
-</div>
+      <div class="row">
+        <div class="col-md-8">
+          <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+            <table class="table table-borderless table-sm mt-5 mb-5 offset-4">
+             <div class="field">
+               <tr>
+                 <th><%= f.label :"user name" %></th>
+                 <td><%= f.text_field :name, autofocus: true, autocomplete: "name" %></td>
+               </tr> 
+             </div>
+             <div class="field">
+               <tr>
+                 <td><%= f.label :email %></td>
+                 <th><%= f.email_field :email, autofocus: true, autocomplete: "email" %></th>
+               </tr>
+             </div>
+             <div class="field">
+               <tr>
+                 <td><%= f.label :password %></td>
+                 <th><%= f.password_field :password, autocomplete: "current-password" %>
+               </tr>
+             </div>
+    
+             <div class="actions">
+               <tr>
+                 <td><%= f.submit "Log in" %></td>
+               </tr>
+             </div>
+            </table>
+          <% end %>
+      </div>
+    </div>
 
          <div class="row">
            <div class="col3-md offset-5 mt-5">
@@ -52,7 +43,5 @@
               <p><%= link_to "Sign up", new_customer_registration_path %></p>
            </div>
          </div>
-
-
 </div>
 

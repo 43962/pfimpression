@@ -1,23 +1,23 @@
 // Place all the styles related to the public/homes controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
-.top-image{
-  background-image: image-url('images/top.jpg');
-  background-image: image-url("top.jpg");
-  height: 600px;
-  width: 100% ;
-  background-size: cover;
-  background-position:center;
-  padding-top: 200px;
-  padding-left: 210px;
-}
-.top-text{
-  background-color: rgba(255,255,255,0.35);
-  font-size: 22px;
-  text-align: center;
-  justify-content: center;
-  font-size: 18px;
-}
+// .top-image{
+//   background-image: image-url('images/top.jpg');
+//   background-image: image-url("top.jpg");
+//   height: 600px;
+//   width: 100% ;
+//   background-size: cover;
+//   background-position:center;
+//   padding-top: 200px;
+//   padding-left: 210px;
+// }
+// .top-text{
+//   background-color: rgba(255,255,255,0.35);
+//   font-size: 22px;
+//   text-align: center;
+//   justify-content: center;
+//   font-size: 18px;
+// }
 
 // .bgCarousel {
 //           height: 470px;
@@ -41,9 +41,3 @@
 //     }
 //   }
 
-// .carousel-item {
-//   height: 700px;
-//   width: 100% ;
-//   background-size: 100% 100%;
-//   background-position:center;
-// }
