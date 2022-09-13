@@ -1,5 +1,9 @@
 <!--<-%= stylesheet_link_tag "application", :media => "all" %>-->
 
+
+
+
+
 <div id="example-2" class="carousel slide" data-ride="carousel" style="width:100%">
   <div class="carousel-inner">
     <div class="carousel-item active">
@@ -34,7 +38,7 @@
             <p class="card-title">
               <i class="fas fa-user"></i><span> <%= review.customer.name %> </span><%= review.height %>cm <%= review.weight %>kg
             </p>
-            <!--<p class="card-text"><i class="fas fa-tags"></i> <-%= review.category.name %></p>-->
+            <p class="card-text"><i class="fas fa-tags"></i> <%= review.category.name %></p>
             <p class="card-text"><i class="fas fa-tshirt"></i> <%= review.item_name %></p>
             <p class="card-text"><i class="fas fa-pen"></i> <%= review.review %></p>
           </div>
