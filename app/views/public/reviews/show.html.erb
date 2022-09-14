@@ -3,7 +3,7 @@
     <%= image_tag @review.get_image, class:"card-img-top" %>
     <div class="card-body">
       <div class="row">
-        <div class="col-10">
+        <div class="col-12">
             <p class="card-title">
               <p><i class="fas fa-user"></i> <%= @review.customer.name %> <%= @review.height %>cm <%= @review.weight %>kg</p>
                <p class="card-text"><i class="fas fa-tags"></i> <%= @review.category.name if @review.category.present? %></p>
@@ -29,9 +29,9 @@
           <div class="field comment_box">
              <%= form_with model: [@review, @comment] do |f| %>
                 <% if current_customer %>
-                   <%= f.text_area :comment, placeholder: "コメントをここに" %>
-                   <%= f.submit "送信する" %>
-                <% end %>   
+                   <%= f.text_area :comment, placeholder: "コメントをここに", class: "form-control"%>
+                   <%= f.submit "送信する", class: "btn btn-primary" %>
+                <% end %>
              <% end %>
           </div>
         </div>
