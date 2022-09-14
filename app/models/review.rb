@@ -1,7 +1,7 @@
 class Review < ApplicationRecord
   has_one_attached :image
   belongs_to :customer
-  belongs_to :category
+  belongs_to :category, optional: true
   has_many :comments, dependent: :destroy
 
   scope :published, -> { where(is_draft: false) }

@@ -1,4 +1,5 @@
 class Admin::ReviewsController < ApplicationController
+   before_action :authenticate_admin!, except: [:top]
 
   def index
     @reviews = Review.all.page(params[:page]).per(8)

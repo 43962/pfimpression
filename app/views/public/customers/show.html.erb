@@ -1,13 +1,9 @@
 <div class="container">
-  <div class="row mt-5 mb-5 offset-4">
-    <div class="col1 ml-5 mr-5">
-      <span></span>
-    </div>
-    
-    <div class="col1">
-      <h3>My page</h3>
-    </div>
+  <div class="row">
+   <h3 class="col-lg-4 mt-4">My page</class>
   </div>
+</div>
+<div class="container">
  <div class="row">
     <table class="table">
       <tr>
@@ -15,15 +11,15 @@
         <td><%= @customer.name %></td>
       </tr>
       <tr>
-        <th>e-mail</th>
+        <th>email</th>
         <td><%= @customer.email %></td>
       </tr>
     </table>
  </div>
 <div class="row">
   <div class="col1 mt-1">
-   <%= link_to "編集", edit_customer_path, class: 'btn btn-outline-dark' %>
-   <%= link_to "下書き一覧へ", draft_index_reviews_path, class: 'btn btn-outline-dark' %>
+       <%= link_to "編集", edit_customer_path, class: 'btn btn-outline-dark' %>
+       <%= link_to "下書き一覧へ", draft_index_reviews_path, class: 'btn btn-outline-dark' %>
   </div>
 </div>
 
@@ -40,13 +36,15 @@
              <i class="fas fa-user"></i> <span><%= review.customer.name %></span> <%= review.height %>cm <%= review.weight %>kg
           </p>
             <p class="card-text"><i class="fas fa-tags"></i> <%= review.category.name %></p>
-          <p></p>
           <p class="card-text"><i class="fas fa-tshirt"></i> <%= review.item_name %></p>
-          <p class="card-text"><i class="fas fa-pen"></i> <%= review.review %></p>
-
+          <p class="card-text"><i class="fas fa-pen"></i> <%= review.review.truncate(20) %></p>
           <i class="far fa-comment"></i> <%= link_to "#{review.comments.count} ", review_path(review.id), class:"text-dark" %>
         </div>
       </div>
     </div>
   </div>
   <% end %>
+
+  <div class="d-flex justify-content-center">
+  <%= paginate @reviews %>
+</div>

@@ -21,3 +21,32 @@ body {
   width: 100%;
 }
 
+.about-img-fluid {
+  height: 800px;
+  width: 100%;
+}
+.about {
+  position: relative;
+}
+.about p {
+  position: absolute;
+  color: white;
+  top: 50%;
+  left: 50%;
+  -ms-transform: translate(-50%,-50%);
+  -webkit-transform: translate(-50%,-50%);
+  transform: translate(-50%,-50%);
+  margin:0;
+  padding:0;
+}
+.about h4 {
+  position: absolute;
+  color: white;
+  top: 30%;
+  left: 50%;
+  -ms-transform: translate(-50%,-50%);
+  -webkit-transform: translate(-50%,-50%);
+  transform: translate(-50%,-50%);
+  margin:0;
+  padding:0;
+}

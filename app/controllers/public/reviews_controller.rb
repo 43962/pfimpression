@@ -1,4 +1,5 @@
 class Public::ReviewsController < ApplicationController
+  before_action :authenticate_customer!, except: [:index, :show]
   before_action :set_search
   def index
    # 検索結果
@@ -15,6 +16,7 @@ class Public::ReviewsController < ApplicationController
   def draft_index
     #下書き一覧
     @review = current_customer.review.where(is_draft: true)
+    @review = @review.page(params[:page]).per(2)
   end
 
   def set_search
@@ -34,7 +36,7 @@ class Public::ReviewsController < ApplicationController
           redirect_to review_path(@review.id), notice: "下書きを公開しました！"
         else
           @review.is_draft = true
-          render :edit, alert: "レシピを公開できませんでした。入力内容をご確認のうえ再度お試しください"
+          render :edit, alert: "レビューを公開できませんでした。入力内容をご確認のうえ再度お試しください"
         end
     # ②公開済みレビューの更新の場合
         elsif params[:update_review]

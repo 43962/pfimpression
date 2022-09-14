@@ -1,4 +1,3 @@
-
 <div class="card-list-container py-5">
   <div class="card w-50 mx-auto mt-4 shadow-lg">
     <%= image_tag @review.get_image, class:"card-img-top" %>
@@ -7,7 +6,7 @@
         <div class="col-10">
             <p class="card-title">
               <p><i class="fas fa-user"></i> <%= @review.customer.name %> <%= @review.height %>cm <%= @review.weight %>kg</p>
-               <p class="card-text"><i class="fas fa-tags"></i> <%= @review.category.name %></p>
+               <p class="card-text"><i class="fas fa-tags"></i> <%= @review.category.name if @review.category.present? %></p>
               <p><i class="fas fa-tshirt"></i> <%= @review.item_name %></p>
               <p><i class="fas fa-pen"></i> <%= @review.review %></p>
               <p><i class="fas fa-calendar-week"></i> <%= @review.created_at.strftime('%Y/%m/%d') %></p>
@@ -20,16 +19,19 @@
             <p><i class="far fa-comment"></i> <%= @review.comments.count %></p>
               <p><% @review.comments.each do |comment| %>
                   <p><%= comment.customer.name %>
-                  <%= comment.created_at.strftime('%Y/%m/%d') %><%= comment.comment %>
-                <% if comment.customer == current_customer %>
-                  <%= link_to "削除", review_comment_path(comment.review, comment), method: :delete, data: {confirm: "削除しますか？"} %>
-                <% end %></p>
-              <% end %></p>
+                      <%= comment.created_at.strftime('%Y/%m/%d') %><%= comment.comment %>
+                      <% if comment.customer == current_customer %>
+                        <%= link_to "削除", review_comment_path(comment.review, comment), method: :delete, data: {confirm: "削除しますか？"} %>
+                      <% end %></p>
+                  <% end %>
+              </p>
           </div>
-          <div>
+          <div class="field comment_box">
              <%= form_with model: [@review, @comment] do |f| %>
-               <%= f.text_area :comment, placeholder: "コメントをここに" %>
-               <%= f.submit "送信する" %>
+                <% if current_customer %>
+                   <%= f.text_area :comment, placeholder: "コメントをここに" %>
+                   <%= f.submit "送信する" %>
+                <% end %>   
              <% end %>
           </div>
         </div>

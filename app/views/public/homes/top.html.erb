@@ -26,6 +26,9 @@
   <div class="row">
    <h3 class="col-lg-4 mt-4">NEW REVIEW</class>
   </div>
+  <div class="row">
+   <h3 class="col-lg-4 mt-4">REVIEW ALL</class>
+  </div>
 </div>
 
 <div class="container">
@@ -34,15 +37,15 @@
       <div class="col-lg-4 mt-4">
         <div class="card">
             <%= link_to review_path(review.id) do %>
-             <%= image_tag review.get_image, class:"card-img-top" %>
+             <%= image_tag review.get_image, class: "img-fluid" %>
             <% end %>
           <div class="card-body">
             <p class="card-title">
-              <i class="fas fa-user"></i><span> <%= review.customer.name %> </span><-%= review.height %>cm <%= review.weight %>kg
+              <i class="fas fa-user"></i><span> <%= review.customer.name %> </span><%= review.height %>cm <%= review.weight %>kg
             </p>
-            <p class="card-text"><i class="fas fa-tags"></i> <%= review.category.name %></p>
+            <p class="card-text"><i class="fas fa-tags"></i> <%= review.category.name if review.category.present? %></p>
             <p class="card-text"><i class="fas fa-tshirt"></i> <%= review.item_name %></p>
-            <p class="card-text"><i class="fas fa-pen"></i> <%= review.review %></p>
+            <p class="card-text"><i class="fas fa-pen"></i> <%= review.review.truncate(20) %></p>
           </div>
         </div>
       </div>

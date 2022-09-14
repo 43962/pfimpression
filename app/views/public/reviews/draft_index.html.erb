@@ -11,22 +11,18 @@
         <div class="col-10">
           <p class="card-title">
             <%= link_to(review_path(review.id), class:"text-dark") do %>
-              <strong><i class="far fa-flag"></i><span><%= review.customer.name %></span></strong>
+              <strong><i class="far fa-flag"></i><span><%= review.customer.name %> </span><%= review.height %>cm <%= review.weight %>kg</strong>
             <% end %>
           </p>
-          <span class="card-text">身長：<%= review.height %>cm</span>
-          <span class="card-text">体重：<%= review.weight %>kg</span>
-          <!--<p class="card-text">カテゴリー:<-%= review.category_id.name %></p>-->
-          <p class="card-text">商品名：<%= review.item_name %></p>
-          <p class="card-text">レビュー：<%= review.review %></p>
-          <span><i class="fas fa-user"></i> By <%= review.customer.name %> ｜
-          <span><%= link_to "#{review.comments.count} コメント", review_path(review.id), class:"text-dark" %></span>
+          <p class="card-text"><i class="fas fa-tags"></i> <%= review.category.name if review.category.present? %></p>
+          <p class="card-text"><i class="fas fa-tshirt"></i> <%= review.item_name %></p>
+          <p class="card-text"><i class="fas fa-pen"></i> <%= review.review %></p>
         </div>
       </div>
     </div>
   </div>
   <% end %>
 
-  <div style="margin:0 auto;">
-  <!--<-%= paginate @review %>-->
+  <div class="d-flex justify-content-center">
+  <%= paginate @review %>
 </div>
