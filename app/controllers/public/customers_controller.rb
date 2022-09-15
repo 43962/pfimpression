@@ -34,6 +34,7 @@ class Public::CustomersController < ApplicationController
     @customer.update(is_valid: true)
     reset_session
     redirect_to root_path
+   end
 
    def create
    end
