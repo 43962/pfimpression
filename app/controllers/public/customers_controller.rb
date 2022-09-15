@@ -26,7 +26,7 @@ class Public::CustomersController < ApplicationController
   # end
 
    def unsubscribe
-    @customerr = Customer.find_by(name: params[:name])
+    @customerr = Customer.find_by(params[:id])
    end
 
    def withdraw
@@ -34,7 +34,6 @@ class Public::CustomersController < ApplicationController
     @customer.update(is_valid: true)
     reset_session
     redirect_to root_path
-   end
 
    def create
    end
