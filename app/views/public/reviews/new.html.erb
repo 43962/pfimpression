@@ -1,7 +1,7 @@
 <div class="container">
   <div class="row no-gutters">
     <div class="col-md-5 col-sm-10 mx-2 mx-sm-auto shadow-lg rounded px-0 my-5">
-      <h5 class="text-dark bg-light p-4 mb-0">Post a review</h5>
+      <h4 class="text-dark bg-light p-4 mb-0">Post a review</h5>
       <div class="form-body p-4">
 
         <!--バリデーションによるフラッシュメッセージ-->
@@ -22,7 +22,6 @@
             <%= f.text_field :height, class:"form-control", placeholder:"身長(cm)" %>
             <%= f.text_field :weight, class:"form-control", placeholder:"体重(kg)" %>
             <%= f.text_field :item_name, class:"form-control", placeholder:"商品名" %>
-            <!--カテゴリー選択class:"form-control"で揃えたい-->
             <%= f.select :category_id, options_from_collection_for_select(Category.all, :id, :name), { include_blank: "-- カテゴリーを選択して下さい --"}, { class: "form-control" } %>
             <%= f.text_area :review, class:"form-control", rows:"3", placeholder:"レビュー" %>
           <div class="d-flex justify-content-center">

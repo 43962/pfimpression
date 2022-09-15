@@ -38,7 +38,7 @@
                 <li class="nav-item">
                     <%= link_to reviews_path, class: 'nav-link text-dark' do %>
                   <i class="fas fa-pen"></i>
-                      Review
+                      Reviews
                     <% end %>
                 </li>
                 <li class="nav-item">
@@ -56,16 +56,28 @@
 
                     <% elsif admin_signed_in? %>
                   <li class="nav-item">
-                    <%= link_to "Reviews", admin_reviews_path, class: 'nav-link text-dark' %>
+                      <%= link_to admin_reviews_path, class: 'nav-link text-dark' do %>
+                     <i class="fas fa-pen"></i>
+                       Reviews
+                      <% end %>
                   </li>
                   <li class="nav-item">
-                    <%= link_to "Customers", admin_customers_path, class: 'nav-link text-dark' %>
+                      <%= link_to admin_customers_path, class: 'nav-link text-dark' do %>
+                    <i class="fas fa-users"></i>
+                        Customers
+                      <% end %>
                   </li>
                   <li class="nav-item">
-                    <%= link_to "Categories", admin_categories_path, class: 'nav-link text-dark' %>
+                      <%= link_to admin_categories_path, class: 'nav-link text-dark' do %>
+                    <i class="fas fa-tshirt"></i>
+                        Categories
+                      <% end %>
                   </li>
                   <li class="nav-item">
-                    <%= link_to "Log out", destroy_admin_session_path, method: :delete, class: 'nav-link text-dark' %>
+                      <%= link_to destroy_admin_session_path, method: :delete, class: 'nav-link text-dark' do %>
+                    <i class="fas fa-sign-out-alt"></i>
+                        Log out
+                      <% end %>
                   </li>
 
                 <% else %>
@@ -125,7 +137,7 @@
               <h6 class="text-dark offset-md-6 mt-2 mb-6">Link</h6>
               <ul class="p-0 list-unstyled">
                 <li class="text-dark-50 offset-md-6">
-                  <%= link_to "About", about_path %>
+                  <%= link_to "About", about_path, class: "about_link" %>
                 </li>
               </ul>
           </div>

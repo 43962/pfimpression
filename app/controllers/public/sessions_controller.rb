@@ -5,7 +5,7 @@ class Public::SessionsController < Devise::SessionsController
     customer = Customer.guest
     sign_in customer
     redirect_to customer_path(customer), notice: 'ゲストユーザーでログインしました。'
-  end
+ end
   # before_action :configure_sign_in_params, only: [:create]
 
   # GET /resource/sign_in

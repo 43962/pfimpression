@@ -10,10 +10,7 @@
               <p><i class="fas fa-tshirt"></i> <%= @review.item_name %></p>
               <p><i class="fas fa-pen"></i> <%= @review.review %></p>
               <p><i class="fas fa-calendar-week"></i> <%= @review.created_at.strftime('%Y/%m/%d') %></p>
-                <% if @review.customer == current_customer %>
-                  <%= link_to "削除", review_path(@review), method: :delete %>
-                  <%= link_to "編集", edit_review_path(@review) %>
-                <% end %>
+
             </p>
           <div>
             <p><i class="far fa-comment"></i> <%= @review.comments.count %></p>
@@ -30,9 +27,19 @@
              <%= form_with model: [@review, @comment] do |f| %>
                 <% if current_customer %>
                    <%= f.text_area :comment, placeholder: "コメントをここに", class: "form-control"%>
-                   <%= f.submit "送信する", class: "btn btn-primary" %>
+                   <%= f.submit "送信する", class: "btn btn-sm btn-warning text-white" %>
                 <% end %>
              <% end %>
+          </div>
+          <div class="container">
+            <div class="row justify-content-end">
+              <div class="col1 mt-1">
+                 <% if @review.customer == current_customer %>
+                      <%= link_to "レビュー削除", review_path(@review), method: :delete, data: {confirm: "削除しますか？"} %>
+                      <%= link_to "編集", edit_review_path(@review) %>
+                 <% end %>
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -41,13 +48,13 @@
   <!--<-% if @post_image.favorited_by?(current_user) %>-->
   <!--  <p>-->
   <!--    <-%= link_to post_image_favorites_path(@post_image), method: :delete do %>-->
-  <!--     ♥<-%= @post_image.favorites.count %> いいね-->
+  <!--     ★<-%= @post_image.favorites.count %> いいね-->
   <!--    <-% end %>-->
   <!--  </p>-->
   <!--  <-% else %>-->
   <!--  <p>-->
   <!--    <-%= link_to post_image_favorites_path(@post_image), method: :post do %>-->
-  <!--     ♡<-%= @post_image.favorites.count %> いいね-->
+  <!--     ☆<-%= @post_image.favorites.count %> いいね-->
   <!--    <-% end %>-->
   <!--  </p>-->
   <!--<-% end %>-->

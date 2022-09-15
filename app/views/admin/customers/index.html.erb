@@ -1,17 +1,14 @@
 <div class="container">
   <div class="row">
-    <div class="col-md-3 offset-md-1 mb-5 mt-5">
-      <h3>Customers</h3>
-    </div>
-  </div>
-  <div class="row justify-content-center">
-    <div class="col-md-8">
-      <table class="table">
+    <div class="col-md-8 offset-1">
+      <h3 lass="my-4", style="width:120px; padding-left: 12px"><b>Customers</b></h3>
+
+       <table class="table">
         <thead>
           <tr>
-            <th>CustomerID</th>
-            <th>name</th>
-            <th>email</th>
+              <th>CustomerID</th>
+              <th>name</th>
+              <th>email</th>
           </tr>
         </thead>
         <% @customers.each do |customer| %>
@@ -22,21 +19,14 @@
                 <%= link_to "#{customer.name}", admin_customer_path(customer.id) %>
               </td>
               <td><%= customer.email %></td>
-
-                <!--<-% if customer.is_deleted == true %>-->
-                <!--  <td class="text-secondary font-weight-bold">退会</td>-->
-                <!--<-% else %>-->
-                <!--  <td class="text-success font-weight-bold">有効</td>-->
-                <!--<-% end %>-->
             </tr>
           </tbody>
         <% end %>
-      </table>
+    </table>
     </div>
   </div>
-
-  <div class="row justify-content-center">
-      <%= paginate @customers %>
-  </div>
-
 </div>
+  <!--<div class="row justify-content-center">-->
+  <!--    <-%= paginate @customers %>-->
+  <!--</div>-->
+
