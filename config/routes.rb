@@ -27,8 +27,10 @@ end
   scope module: :public do
     root 'homes#top'
     get '/about' => 'homes#about'
+    get '/unsubscribe' => 'customers#unsubscribe'
+    patch '/withdraw' => 'customers#withdraw'
     resources :categories, only: [:index, :show]
-    resources :customers, only: [:show, :edit, :update, :destroy]
+    resources :customers, only: [:show, :edit, :update, :unsubscribe, :withdraw]
     resources :reviews, only: [:index, :update, :destroy, :show, :new, :create, :edit,] do
       #下書き一覧
       collection do

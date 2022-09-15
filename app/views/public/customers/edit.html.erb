@@ -24,7 +24,7 @@
         <div class="actions">
          <tr>
           <td><%= f.submit "変更を保存", class: "btn btn-success btn-sm mt-2" %></td>
-          <td><%= link_to "退会する", customer_path(@customer), method: :delete, data: {confirm: "本当に退会しますか?"}, class: 'btn btn-danger btn-sm mt-2 ml-5' %></td>
+          <td><%= link_to "退会する", unsubscribe_path, class: 'btn btn-danger btn-sm mt-2 ml-5' %></td>
          </tr>
         </div>
     </table>

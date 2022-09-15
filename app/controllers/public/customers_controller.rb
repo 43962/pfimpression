@@ -18,14 +18,22 @@ class Public::CustomersController < ApplicationController
      redirect_to customer_path(@customer)
    end
 
-   def destroy
-     @customer = current_customer
-     if @customer.destroy
-       flash[:notice] = "退会が完了しました。"
-       redirect_to root_path
-     else
-      flash[:alret] = "退会に失敗しました。"
-     end
+  # def destroy
+  #   @customer = current_customer
+  #   @customer.destroy
+  #     flash[:notice] = "退会が完了しました。"
+  #     redirect_to root_path
+  # end
+
+   def unsubscribe
+    @customerr = Customer.find_by(name: params[:name])
+   end
+
+   def withdraw
+    @customer = current_customer
+    @customer.update(is_valid: true)
+    reset_session
+    redirect_to root_path
    end
 
    def create
