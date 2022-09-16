@@ -21,7 +21,7 @@
                     </p>
             </div>
               <%= link_to '戻る', admin_reviews_path, class: "btn btn-success px-3" %>
-              <%= link_to "削除", review_path(@review), method: :delete, data: {confirm: "削除しますか？"}, class: "btn btn-danger px-3" %>
+              <%= link_to "削除", admin_review_path(@review), method: :delete, data: {confirm: "削除しますか？"}, class: "btn btn-danger px-3" %>
   <!--<-% if @post_image.favorited_by?(current_user) %>-->
   <!--  <p>-->
   <!--    <-%= link_to post_image_favorites_path(@post_image), method: :delete do %>-->

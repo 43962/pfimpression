@@ -16,7 +16,7 @@ devise_for :admin, skip: [:registrations, :passwords] ,controllers: {
 
 namespace :admin do
 
-  resources :reviews, only: [:index, :show] do
+  resources :reviews, only: [:index, :show, :destroy] do
     resources :comments, only: [:destroy]
   end
   resources :categories, only: [:index, :create, :edit, :update, :destroy]

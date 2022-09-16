@@ -23,6 +23,19 @@
                   <% end %>
               </p>
           </div>
+
+          <!--バリデーションによるフラッシュメッセージ-->
+        <% if @comment.errors.any? %>
+          <ul class="alert alert-danger" role="alert">
+            <h6 class="alert-heading">
+              <%= @review.errors.count %>件のエラーが発生しました
+            </h6>
+            <% @review.errors.full_messages.each do |message| %>
+              <li><%= message %></li>
+            <% end %>
+          </ul>
+        <% end %>
+
           <div class="field comment_box">
              <%= form_with model: [@review, @comment] do |f| %>
                 <% if current_customer %>
