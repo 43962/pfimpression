@@ -40,6 +40,6 @@
 - IDE：Cloud9
 
 ## 使用素材
-- 画像 サイト名：Unsplash　URL：https://unsplash.com/ja
+- 画像　サイト名：Unsplash　URL：https://unsplash.com/ja
 - ロゴ　サイト名：squarespace　URL：https://www.squarespace.com
-- アイコン　サイト名：fomtawesome　URL：https://fontawesome.com/
+- アイコン　サイト名：fomtawesome　URL：https://fontawesome.com

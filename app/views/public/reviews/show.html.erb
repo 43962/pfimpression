@@ -10,8 +10,23 @@
               <p><i class="fas fa-tshirt"></i> <%= @review.item_name %></p>
               <p><i class="fas fa-pen"></i> <%= @review.review %></p>
               <p><i class="fas fa-calendar-week"></i> <%= @review.created_at.strftime('%Y/%m/%d') %></p>
-
             </p>
+
+            <!--いいね機能-->
+            <% if @review.favorited_by?(current_customer) %>
+              <p>
+                <%= link_to review_favorites_path(@review), method: :delete do %>
+                 ★<%= @review.favorites.count %>
+                <% end %>
+              </p>
+              <% else %>
+              <p>
+                <%= link_to review_favorites_path(@review), method: :post do %>
+                 ☆<%= @review.favorites.count %>
+                <% end %>
+              </p>
+            <% end %>
+
           <div>
             <p><i class="far fa-comment"></i> <%= @review.comments.count %></p>
               <p><% @review.comments.each do |comment| %>
@@ -58,19 +73,7 @@
       </div>
     </div>
   </div>
-  <!--<-% if @post_image.favorited_by?(current_user) %>-->
-  <!--  <p>-->
-  <!--    <-%= link_to post_image_favorites_path(@post_image), method: :delete do %>-->
-  <!--     ★<-%= @post_image.favorites.count %> いいね-->
-  <!--    <-% end %>-->
-  <!--  </p>-->
-  <!--  <-% else %>-->
-  <!--  <p>-->
-  <!--    <-%= link_to post_image_favorites_path(@post_image), method: :post do %>-->
-  <!--     ☆<-%= @post_image.favorites.count %> いいね-->
-  <!--    <-% end %>-->
-  <!--  </p>-->
-  <!--<-% end %>-->
+
 </div>
 
 

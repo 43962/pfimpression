@@ -3,14 +3,19 @@ class Review < ApplicationRecord
   belongs_to :customer
   belongs_to :category, optional: true
   has_many :comments, dependent: :destroy
+  has_many :favorites, dependent: :destroy
 
   scope :published, -> { where(is_draft: false) }
 
-with_options presence: true, on: :publicize do
-  validates :height, presence: true
-  validates :weight, presence: true
-  validates :item_name, presence: true
-  validates :review, presence: true, length: { maximum: 80 }
+  with_options presence: true, on: :publicize do
+    validates :height, presence: true
+    validates :weight, presence: true
+    validates :item_name, presence: true
+    validates :review, presence: true, length: { maximum: 80 }
+  end
+
+def favorited_by?(customer)
+    favorites.where(customer_id: customer.id).exists?
 end
 
   def get_image

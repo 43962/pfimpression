@@ -32,11 +32,12 @@ end
     resources :categories, only: [:index, :show]
     resources :customers, only: [:show, :edit, :update, :unsubscribe, :withdraw]
     resources :reviews, only: [:index, :update, :destroy, :show, :new, :create, :edit,] do
-      #下書き一覧
+      #下書き一覧s
       collection do
        get 'draft_index'
       end
        resources :comments, only: [:create, :destroy]
+       resource :favorites, only: [:create, :destroy, :index]
     end
 
   end

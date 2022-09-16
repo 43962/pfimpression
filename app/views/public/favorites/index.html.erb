@@ -1,32 +1,7 @@
-<div class="container">
-  <div class="row">
-   <h3 class="col-lg-4 mt-4">My page</class>
-  </div>
-</div>
-<div class="container">
- <div class="row">
-    <table class="table">
-      <tr>
-        <th>user name</th>
-        <td><%= @customer.name %></td>
-      </tr>
-      <tr>
-        <th>email</th>
-        <td><%= @customer.email %></td>
-      </tr>
-    </table>
- </div>
- <div class="container">
-    <div class="row justify-content-end">
-      <div class="col1 mt-1">
-           <%= link_to "編集", edit_customer_path, class: 'btn btn-outline-dark' %>
-           <%= link_to "下書き一覧へ", draft_index_reviews_path, class: 'btn btn-outline-dark' %>
-           <%= link_to "お気に入り一覧へ", draft_index_reviews_path, class: 'btn btn-outline-dark'>
-      </div>
-    </div>
-     
+<h3>Favorites</h3>
 
 <div class="card-list-container py-5">
+  <% if @favorites.present? %>
   <% @reviews.each do |review| %>
   <div class="card w-50 mx-auto mt-4 shadow-lg">
     <%= link_to review_path(review.id) do %>
