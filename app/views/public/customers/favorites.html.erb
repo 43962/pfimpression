@@ -1,0 +1,19 @@
+<h3>Favorites</h3>
+
+  <% if @favorites.present? %>
+    <% @reviews.each do |review| %>
+      <tbody>
+            <tr>
+              <td><%= review.customer.name %></td>
+              <td><%= review.category.name %></td>
+              <td><%= review.item_name %></td>
+              <td><%= link_to "詳細へ", review_path(review) %></td>
+            </tr>
+      </tbody>
+    <% end %>
+  <% end %>
+</div>
+
+  <!--<div class="d-flex justify-content-center">-->
+  <!--  <-%= paginate @reviews %>-->
+  <!--</div>-->

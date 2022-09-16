@@ -15,7 +15,7 @@ class Public::FavoritesController < ApplicationController
   end
 
   def index
-　　@favorites = Favorite.where(customer_id: @customer.id).all
+    @favorites = Favorite.where(customer_id: @customer.id).all
   end
 
 end
