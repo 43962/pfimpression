@@ -18,6 +18,11 @@ class Public::CustomersController < ApplicationController
      redirect_to customer_path(@customer)
    end
 
+   def favorites
+     customer = Customer.find(params[:id])
+     @favorites = customer.favorites
+   end
+
    def unsubscribe
     @customerr = Customer.find_by(params[:id])
    end

@@ -33,7 +33,7 @@ end
     resources :customers, only: [:show, :edit, :update, :unsubscribe, :withdraw] do
       member do
         get 'favorites'
-        end
+      end
     end
 
     resources :reviews, only: [:index, :update, :destroy, :show, :new, :create, :edit,] do

@@ -8,7 +8,9 @@ class Public::CommentsController < ApplicationController
     if @comment.save
       redirect_to review_path(@review)
     else
-      redirect_back fallback_location: root_path
+      # redirect_back fallback_location: root_path
+      # エラーメッセージを表示させたいときはrenderを使う(controller名/action)
+      render 'public/reviews/show'
     end
   end
 
