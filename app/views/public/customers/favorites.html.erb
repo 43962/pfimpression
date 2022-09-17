@@ -1,17 +1,34 @@
-<h3>Favorites</h3>
+<div class='container'>
+  <div class='row'>
+    <div class='col-md-8 offset-1'>
+      <h3 class="my-4", style="width:120px; padding-left: 12px"><b>Favorites</b></h3>
 
-  <% if @favorites.present? %>
-    <% @favorites.each do |favorite| %>
-      <tbody>
-            <tr>
-              <td><%= favorite.review.customer.name %></td>
-              <td><%= favorite.review.category.name %></td>
-              <td><%= favorite.review.item_name %></td>
-              <td><%= link_to "詳細へ", review_path(favorite.review) %></td>
-            </tr>
-      </tbody>
-    <% end %>
-  <% end %>
+        <table class="table">
+              <thead>
+                <tr>
+                  <th>User name</th>
+                  <th>Category name</th>
+                  <th>Item name</th>
+                  <th></th>
+                </tr>
+              </thead>
+    
+              <% if @favorites.present? %>
+                <% @favorites.each do |favorite| %>
+                  <tbody>
+                        <tr>
+                          <td><%= favorite.review.customer.name %></td>
+                          <td><%= favorite.review.category.name %></td>
+                          <td><%= favorite.review.item_name %></td>
+                          <td><%= link_to "詳細へ", review_path(favorite.review) %></td>
+                        </tr>
+                  </tbody>
+                <% end %>
+              <% end %>
+        </table>
+    </div>
+  </div>
+</div>
 
 
   <!--<div class="d-flex justify-content-center">-->
