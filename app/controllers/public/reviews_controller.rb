@@ -15,7 +15,7 @@ class Public::ReviewsController < ApplicationController
 
   def draft_index
     #下書き一覧
-    @review = current_customer.review.where(is_draft: true)
+    @review = current_customer.reviews.where(is_draft: true)
     @review = @review.page(params[:page]).per(2)
   end
 
