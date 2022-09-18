@@ -20,13 +20,13 @@
                    ★<%= @review.favorites.count %>
                   <% end %>
                 </p>
-                <% else %>
+              <% end %>
+            <% else %>
                 <p>
                   <%= link_to review_favorites_path(@review), method: :post do %>
                    ☆<%= @review.favorites.count %>
                   <% end %>
                 </p>
-              <% end %>
             <% end %>
 
           <div>
