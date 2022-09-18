@@ -4,7 +4,7 @@ class Public::CustomersController < ApplicationController
 
    def show
      @customer = Customer.find(params[:id])
-     @reviews = @customer.review.where(is_draft: false)
+     @reviews = @customer.reviews.where(is_draft: false)
      @reviews = @reviews.page(params[:page]).per(2)
    end
 
