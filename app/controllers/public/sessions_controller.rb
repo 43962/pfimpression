@@ -12,6 +12,10 @@ class Public::SessionsController < Devise::SessionsController
     end
  end
 
+ def after_sign_in_path_for(resource)
+   customer_path(@customer)
+ end
+
  def guest_sign_in
     customer = Customer.guest
     sign_in customer
