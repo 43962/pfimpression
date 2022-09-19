@@ -5,6 +5,7 @@ class Public::SessionsController < Devise::SessionsController
 
  def reject_inactive_customer
     @customer = Customer.find_by(email: params[:customer][:email])
+    # パスワードが間違っている又は退会しているか
     if @customer
       if @customer.valid_password?(params[:customer][:password]) == false || @customer.is_deleted == true
         redirect_to new_customer_registration_path
