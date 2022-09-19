@@ -29,7 +29,7 @@ class Public::CustomersController < ApplicationController
 
    def withdraw
     @customer = current_customer
-    @customer.update(is_valid: true)
+    @customer.update(is_deleted: true)
     reset_session
     redirect_to root_path
    end
@@ -37,7 +37,7 @@ class Public::CustomersController < ApplicationController
  private
 
   def customer_params
-    params.require(:customer).permit(:name, :email, :password)
+    params.require(:customer).permit(:name, :email, :password, :is_deleted)
   end
 
   def ensure_guest_user

@@ -20,29 +20,30 @@ namespace :admin do
     resources :comments, only: [:destroy]
   end
   resources :categories, only: [:index, :create, :edit, :update, :destroy]
-  resources :customers, only: [:index, :show, :destroy]
-
+  resources :customers, only: [:index, :show, :destroy] do
+    patch :withdraw
+  end
 end
 
   scope module: :public do
     root 'homes#top'
     get '/about' => 'homes#about'
-    get '/unsubscribe' => 'customers#unsubscribe'
-    patch '/withdraw' => 'customers#withdraw'
     resources :categories, only: [:index, :show]
-    resources :customers, only: [:show, :edit, :update, :unsubscribe, :withdraw] do
+    resources :customers, only: [:show, :edit, :update, :unsubscribe] do
       member do
-        get 'favorites'
+        get :favorites
+        get :unsubscribe
+        patch :withdraw
       end
     end
 
     resources :reviews, only: [:index, :update, :destroy, :show, :new, :create, :edit,] do
       #下書き一覧
       collection do
-       get 'draft_index'
+        get 'draft_index'
       end
-       resources :comments, only: [:create, :destroy]
-       resource :favorites, only: [:create, :destroy]
+        resources :comments, only: [:create, :destroy]
+        resource :favorites, only: [:create, :destroy]
     end
 
   end

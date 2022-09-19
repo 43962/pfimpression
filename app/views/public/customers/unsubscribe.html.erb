@@ -1,10 +1,31 @@
-<div>
-  <h2>本当に退会しますか？</h2>
-  <div>
-    <p>退会する場合は、『退会する』をクリックしてください。</p>
+<div class="container">
+   <div class="row justify-content-center">
+     <div class="col1">
+        <h2>本当に退会しますか？</h2>
+     </div>
+   </div>
+
+  <div class="container">
+     <div class="row justify-content-center">
+       <div class="col1">
+         <tr>
+            <td>
+              <p>退会する場合は、『退会する』をクリックしてください。</p>
+            </td>
+       </div>
+     </div>
   </div>
-  <div>
-    <%= link_to '退会しない', edit_customer_path(current_customer) %>
-    <%= link_to "退会する", withdraw_path(@customer), method: :patch %>
+
+  <div class="container">
+     <div class="row justify-content-center">
+       <div class="col1">
+            <td>
+              <%= link_to '退会しない', edit_customer_path(current_customer) %>
+            </td>
+            <td>
+              <%= link_to "退会する", withdraw_path(@customer), method: :patch %>
+            </td>
+        </tr>
+      </div>
+     </div>
   </div>
-</div>
