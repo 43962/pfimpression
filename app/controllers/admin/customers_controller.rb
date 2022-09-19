@@ -21,7 +21,7 @@ class Admin::CustomersController < ApplicationController
 
   def withdraw
     @customer = Customer.find(params[:customer_id])
-    @customer.update(is_deleted: true)
+    @customer.update(is_deleted: 1)
     redirect_to admin_customers_path
   end
 
