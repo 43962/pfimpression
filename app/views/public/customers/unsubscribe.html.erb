@@ -12,6 +12,7 @@
             <td>
               <p>退会する場合は、『退会する』をクリックしてください。</p>
             </td>
+         </tr>    
        </div>
      </div>
   </div>
@@ -19,13 +20,14 @@
   <div class="container">
      <div class="row justify-content-center">
        <div class="col1">
+          <tr>
             <td>
               <%= link_to '退会しない', edit_customer_path(current_customer), class: "btn btn-outline-primary" %>
             </td>
             <td>
               <%= link_to "退会する", withdraw_customer_path(current_customer), class: "btn btn-outline-danger", method: :patch %>
             </td>
-        </tr>
+          </tr>
       </div>
      </div>
   </div>
