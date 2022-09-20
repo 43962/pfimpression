@@ -42,18 +42,18 @@
             </p>
             <p class="card-text"><i class="fas fa-tags"></i> <%= review.category.name if review.category.present? %></p>
             <p class="card-text"><i class="fas fa-tshirt"></i> <%= review.item_name %></p>
-            <p class="card-text"><i class="fas fa-pen"></i> <%= review.review.truncate(20) %></p>
+            <p class="card-text"><i class="fas fa-pen"></i> <%= review.review.truncate(10) %></p>
           </div>
         </div>
       </div>
     <% end %>
   </div>
  </div>
- 
+
  <div class="container">
    <div class="row justify-content-end">
        <h3 class="col-lg-2 mt-4">
          <%= link_to "REVIEW ALL︎", reviews_path, class: "link" %>
        </class>
     </div>
- </div>  
+ </div>

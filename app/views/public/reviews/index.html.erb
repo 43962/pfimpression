@@ -17,7 +17,7 @@
             </p>
             <p class="card-text"><i class="fas fa-tags"></i> <%= review.category.name if review.category.present? %></p>
             <p class="card-text"><i class="fas fa-tshirt"></i> <%= review.item_name %></p>
-            <p class="card-text"><i class="fas fa-pen"></i> <%= review.review.truncate(20) %></p>
+            <p class="card-text"><i class="fas fa-pen"></i> <%= review.review.truncate(10) %></p>
           </div>
         </div>
       </div>
