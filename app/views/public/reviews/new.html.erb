@@ -1,7 +1,7 @@
 <div class="container">
   <div class="row no-gutters">
     <div class="col-md-5 col-sm-10 mx-2 mx-sm-auto shadow-lg rounded px-0 my-5">
-      <h4 class="text-dark bg-light p-4 mb-0">Post a review</h5>
+     <h4 class="text-dark bg-light p-4 mb-0">Post a review</h5>
       <div class="form-body p-4">
 
         <!--バリデーションによるフラッシュメッセージ-->
@@ -17,7 +17,7 @@
         <% end %>
 
         <%= form_with model: @review do |f| %>
-          <%= render 'form', f: f %>
+            <%= render 'form', f: f %>
           <div class="d-flex justify-content-center">
             <%= f.submit '投稿', :name => 'post', class: 'mr-5 btn btn-sm btn-warning text-white' %>
             <%= f.submit '下書きに保存', :name => 'draft', class: 'mr-5 btn btn-sm btn-outline-secondary' %>
