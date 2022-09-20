@@ -2,18 +2,11 @@
 
 require 'rails_helper'
 
-RSpec.describe "Reviews", type: :request do
+RSpec.describe "Reviews", type: :system do
   before do
-    @admin = FactoryBot.create(:admin) #FactoryBotを利用してuserデータを作成
-  end
-
-  describe 'GET #new' do
-    context "ログインしている場合" do
-   #サインインする
-      before do
-        sign_in @admin
-      end
-    end
+    @category = FactoryBot.create(:category)
+    @admin = FactoryBot.create(:admin) #FactoryBotを利用してcustomerデータを作成
+    sign_in @admin
   end
 
   describe "(admin_categories_path)のテスト" do
@@ -31,7 +24,7 @@ RSpec.describe "Reviews", type: :request do
     context '新規登録処理のテスト' do
       it '投稿後のリダイレクト先は正しいか' do
         fill_in 'category[name]', with: Faker::Lorem.characters(number:10)
-        click_button '新規登録する'
+        click_button '新規登録'
         expect(page).to have_current_path admin_categories_path
       end
     end
@@ -43,19 +36,18 @@ RSpec.describe "Reviews", type: :request do
     end
     context '表示の確認' do
       it '投稿されたものが表示されているか' do
-        expect(page).to have_content category.name
+        expect(page).to have_content @category.name
       end
     end
   end
 
-
   describe '編集画面のテスト' do
     before do
-      visit edit_admin_category_path(category)
+      visit edit_admin_category_path(@category)
     end
     context '表示の確認' do
       it '編集前のタイトルと本文がフォームに表示(セット)されている' do
-        expect(page).to have_field 'category[name]', with: category.name
+        expect(page).to have_field 'category[name]', with: @category.name
       end
       it '保存ボタンが表示される' do
         expect(page).to have_button '変更を保存'
