@@ -1,6 +1,8 @@
 class Public::ReviewsController < ApplicationController
   before_action :authenticate_customer!, except: [:index, :show]
   before_action :set_search
+  before_action :ensure_correct_customer, only: [:edit, :update]
+
   def index
    # 検索結果
    @search = Review.where(is_draft: false).ransack(params[:q])
@@ -104,5 +106,12 @@ class Public::ReviewsController < ApplicationController
     params.require(:review).permit(:height, :weight, :review, :item_name, :image, :category_id)
   end
 
+  def ensure_correct_customer
+      @review = Review.find(params[:id])
+      @customer = @review.customer
+    unless @customer == current_customer
+      redirect_to reviews_path, notice: "他のユーザーの投稿編集画面へは遷移できません。"
+    end
+  end
 
 end
