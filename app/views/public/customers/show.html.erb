@@ -29,9 +29,9 @@
 <div class="card-list-container py-5">
   <% @reviews.each do |review| %>
   <div class="card w-50 mx-auto mt-4 shadow-lg">
-    <%= link_to review_path(review.id) do %>
-      <%= image_tag review.get_image, class:"card-img-top" %>
-    <% end %>
+      <%= link_to review_path(review.id) do %>
+        <%= image_tag review.get_image, class:"card-img-top" %>
+      <% end %>
     <div class="card-body">
       <div class="row">
         <div class="col-10">
@@ -47,7 +47,6 @@
     </div>
   </div>
   <% end %>
-
   <div class="d-flex justify-content-center">
   <%= paginate @reviews %>
 </div>
