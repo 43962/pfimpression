@@ -97,9 +97,6 @@ class Public::ReviewsController < ApplicationController
      @review = Review.find(params[:id])
   end
 
-
-
-
   private
 
   def review_params

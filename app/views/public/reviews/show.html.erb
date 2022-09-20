@@ -31,7 +31,6 @@
               ★<%= @review.favorites.count %>
             <% end %>
 
-
           <div>
             <p><i class="far fa-comment"></i> <%= @review.comments.count %></p>
               <p><% @review.comments.each do |comment| %>
@@ -68,8 +67,8 @@
             <div class="row justify-content-end">
               <div class="col1 mt-1">
                  <% if @review.customer == current_customer %>
-                      <%= link_to "レビュー削除", review_path(@review), method: :delete, data: {confirm: "削除しますか？"} %>
-                      <%= link_to "編集", edit_review_path(@review) %>
+                      <%= link_to "レビュー削除", review_path(@review), method: :delete, class: "btn btn-outline-primary", data: {confirm: "削除しますか？"} %>
+                      <%= link_to "編集", edit_review_path(@review), class: "btn btn-outline-primary" %>
                  <% end %>
               </div>
             </div>
