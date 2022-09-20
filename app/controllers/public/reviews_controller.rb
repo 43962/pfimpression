@@ -41,7 +41,7 @@ class Public::ReviewsController < ApplicationController
           render :edit, alert: "レビューを公開できませんでした。入力内容をご確認のうえ再度お試しください"
         end
     # ②公開済みレビューの更新の場合
-        elsif params[:update_review]
+    elsif params[:update_review]
       @review.attributes = review_params
         if @review.save(context: :publicize)
           redirect_to review_path(@review.id), notice: "レビューを更新しました！"
@@ -49,7 +49,7 @@ class Public::ReviewsController < ApplicationController
           render :edit, alert: "レビューを更新できませんでした。入力内容をご確認のうえ再度お試しください"
         end
     # ③下書きの更新（非公開）の場合
-        else
+    else
         if @review.update(review_params)
           redirect_to review_path(@review.id), notice: "下書きを更新しました！"
         else
