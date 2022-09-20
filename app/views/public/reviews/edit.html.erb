@@ -2,14 +2,16 @@
   <div class="row no-gutters">
     <div class="col-md-5 col-sm-10 mx-2 mx-sm-auto shadow-lg rounded px-0 my-5">
       <h5 class="text-dark bg-light p-4 mb-0">レビュー編集</h5>
-      <div class="form-body p-4">
-        <%= form_with model: @review do |f| %>
-          <%= f.file_field :image, accept: "image/*", class: "w-100" %>
-          <%= f.text_field :height, class:"form-control", placeholder:"身長(cm)" %>
-          <%= f.text_field :weight, class:"form-control", placeholder:"体重(kg)" %>
-          <%= f.text_field :item_name, class:"form-control", placeholder:"商品名" %>
-          <%= f.text_area :review, class:"form-control", rows:"3", placeholder:"レビュー" %>
-           <% if @review.is_draft == true %>
+        <div class="form-body p-4">
+          <%= form_with model: @review do |f| %>
+            <%= render 'form', f: f %>
+            <!--<-%= f.file_field :image, accept: "image/*", class: "w-100" %>-->
+            <!--<-%= f.text_field :height, class:"form-control", placeholder:"身長(cm)" %>-->
+            <!--<-%= f.text_field :weight, class:"form-control", placeholder:"体重(kg)" %>-->
+            <!--<-%= f.text_field :item_name, class:"form-control", placeholder:"商品名" %>-->
+            <!--<-%= f.select :category_id, options_from_collection_for_select(Category.all, :id, :name), { include_blank: "-- カテゴリーを選択して下さい --"}, { class: "form-control" } %>-->
+            <!--<-%= f.text_area :review, class:"form-control", rows:"3", placeholder:"レビュー" %>-->
+          <% if @review.is_draft == true %>
             <%= f.submit "レビューを公開", :name => 'publicize_draft', class:'mr-5 btn btn-sm btn-warning' %>
             <%= f.submit "下書きを更新", :name => 'update_draft', class:'mr-5 btn btn-sm btn-outline-secondary' %>
           <% else %>
@@ -17,10 +19,6 @@
           <% end %>
         <% end %>
       </div>
-      <!--<div class="mt-4 pb-3 text-center">-->
-      <!--  <u><-%= link_to "レビューを削除", "/reviews/#{@review.id}", method: :delete, data: {confirm: "このレビューを削除しますか？"}, class:'text-danger' %></u>-->
-      <!--</div>-->
-          <!--<-% end %>-->
     </div>
   </div>
 </div>

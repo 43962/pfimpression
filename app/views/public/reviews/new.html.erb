@@ -16,14 +16,14 @@
           </ul>
         <% end %>
 
-
         <%= form_with model: @review do |f| %>
-            <%= f.file_field :image, accept: "image/*", class: "w-100" %>
-            <%= f.text_field :height, class:"form-control", placeholder:"身長(cm)" %>
-            <%= f.text_field :weight, class:"form-control", placeholder:"体重(kg)" %>
-            <%= f.text_field :item_name, class:"form-control", placeholder:"商品名" %>
-            <%= f.select :category_id, options_from_collection_for_select(Category.all, :id, :name), { include_blank: "-- カテゴリーを選択して下さい --"}, { class: "form-control" } %>
-            <%= f.text_area :review, class:"form-control", rows:"3", placeholder:"レビュー" %>
+          <%= render 'form', f: f %>
+            <!--<-%= f.file_field :image, accept: "image/*", class: "w-100" %>-->
+            <!--<-%= f.text_field :height, class:"form-control", placeholder:"身長(cm)" %>-->
+            <!--<-%= f.text_field :weight, class:"form-control", placeholder:"体重(kg)" %>-->
+            <!--<-%= f.text_field :item_name, class:"form-control", placeholder:"商品名" %>-->
+            <!--<-%= f.select :category_id, options_from_collection_for_select(Category.all, :id, :name), { include_blank: "-- カテゴリーを選択して下さい --"}, { class: "form-control" } %>-->
+            <!--<-%= f.text_area :review, class:"form-control", rows:"3", placeholder:"レビュー" %>-->
           <div class="d-flex justify-content-center">
             <%= f.submit '投稿', :name => 'post', class: 'mr-5 btn btn-sm btn-warning text-white' %>
             <%= f.submit '下書きに保存', :name => 'draft', class: 'mr-5 btn btn-sm btn-outline-secondary' %>
